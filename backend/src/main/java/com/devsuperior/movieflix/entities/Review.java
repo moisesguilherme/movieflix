@@ -2,20 +2,20 @@ package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
 
-public class Role implements Serializable{
-		
+public class Review implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String authority;
+	private String text;
 	
-	public Role(){
-		
+	public Review() {
+			
 	}
-	
-	public Role(Long id, String authority) {
+
+	public Review(Long id, String text) {
 		this.id = id;
-		this.authority = authority;
+		this.text = text;
 	}
 
 	public Long getId() {
@@ -26,12 +26,12 @@ public class Role implements Serializable{
 		this.id = id;
 	}
 
-	public String getAuthority() {
-		return authority;
+	public String getText() {
+		return text;
 	}
 
-	public void setAuthority(String authority) {
-		this.authority = authority;
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class Role implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Role other = (Role) obj;
+		Review other = (Review) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -58,7 +58,5 @@ public class Role implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
+				
 }
