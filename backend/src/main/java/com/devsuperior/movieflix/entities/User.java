@@ -2,21 +2,24 @@ package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
 
-public class Genre implements Serializable{
+public class User  implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
 	private String name;
+	private String email;
+	private String password;
 	
-	public Genre() {
+	public User() {
 		
 	}
-	
-	public Genre(Long id, String name) {
-		super();
+
+	public User(Long id, String name, String email, String password) {
 		this.id = id;
 		this.name = name;
+		this.email = email;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -35,6 +38,22 @@ public class Genre implements Serializable{
 		this.name = name;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -51,7 +70,7 @@ public class Genre implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Genre other = (Genre) obj;
+		User other = (User) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -59,8 +78,6 @@ public class Genre implements Serializable{
 			return false;
 		return true;
 	}
-
-	
 	
 	
 }
