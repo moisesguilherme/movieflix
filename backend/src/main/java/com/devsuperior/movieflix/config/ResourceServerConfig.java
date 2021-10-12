@@ -42,7 +42,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		
-		//Liberar o H2
 		if(Arrays.asList(env.getActiveProfiles()).contains("test")){
 			http.headers().frameOptions().disable();
 		}

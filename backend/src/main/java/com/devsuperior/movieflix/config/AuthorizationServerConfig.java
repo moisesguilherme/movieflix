@@ -30,8 +30,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Value("${jwt.duration}")
 	private Integer jwtDuration;
-	
-	//4 beans que vai precisar
+
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder; 
 	
