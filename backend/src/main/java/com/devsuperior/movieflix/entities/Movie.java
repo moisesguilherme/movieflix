@@ -1,6 +1,8 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -28,14 +33,17 @@ public class Movie implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "genre_id")
-	private Genre genre;	
+	private Genre genre;
+	
+	//@OneToMany(mappedBy = "movie")
+	@OneToMany
+	private List<Review> reviews = new ArrayList<>();
 	
 	public Movie() {
 		
 	}
 		
 	public Movie(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
@@ -93,6 +101,15 @@ public class Movie implements Serializable {
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
+	
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
 
 	@Override
 	public int hashCode() {
