@@ -82,4 +82,4 @@ yarn start
 
 Moisés Guilherme
 
-https://www.linkedin.com/in/moisesguilherme
+https://www.linkedin.com/in/moises-guilherme/
