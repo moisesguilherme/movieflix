@@ -36,7 +36,6 @@ public class Genre implements Serializable{
 	}
 	
 	public Genre(Long id, String name) {
-		super();
 		this.id = id;
 		this.name = name;
 	}

@@ -28,7 +28,7 @@ import com.devsuperior.movieflix.repositories.MovieRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-/*
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
@@ -236,4 +236,3 @@ public class MovieResourceIT {
 		return jsonParser.parseMap(resultString).get("access_token").toString();
 	}
 }
-*/

@@ -10,4 +10,5 @@ import com.devsuperior.movieflix.entities.User;
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Long> {
 
+	
 }
