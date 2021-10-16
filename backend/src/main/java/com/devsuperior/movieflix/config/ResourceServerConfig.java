@@ -31,8 +31,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 		
 	
 	private static final String[] PUBLIC = { "/oauth/token", "/h2-console/**" }; 
-	
 	private static final String[] MEMBER_POST = { "/reviews/**"};
+	private static final String[] USERS = { "/users/**" };
+	
 	
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -42,13 +43,16 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		
+		//Liverar o H2
 		if(Arrays.asList(env.getActiveProfiles()).contains("test")){
 			http.headers().frameOptions().disable();
 		}
-				
+		
 		http.authorizeRequests()
 		.antMatchers(PUBLIC).permitAll()
-		.antMatchers(HttpMethod.POST, MEMBER_POST).hasRole("MEMBER")
+		.antMatchers(HttpMethod.POST, USERS).permitAll()
+		.antMatchers(USERS).hasRole("MEMBER")
+		.antMatchers(MEMBER_POST).hasRole("MEMBER")
 		.anyRequest().authenticated();
 		
 		http.cors().configurationSource(corsConfigurationSource());

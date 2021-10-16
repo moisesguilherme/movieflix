@@ -22,7 +22,7 @@ INSERT INTO tb_movie(title, sub_title, year, img_url, synopsis, genre_id) VALUES
 INSERT INTO tb_movie(title, sub_title, year, img_url, synopsis, genre_id) VALUES ('Filme 3', 'Subtitle 3', 2000, 'http://url.com.br', 'sinopsi 3', 2);
 INSERT INTO tb_movie(title, sub_title, year, img_url, synopsis, genre_id) VALUES ('Filme 3', 'Subtitle 3', 2000, 'http://url.com.br', 'sinopsi 3', 2);
 
-INSERT INTO tb_review (text, user_id) VALUES ('Muito bom!', 1);
-INSERT INTO tb_review (text, user_id) VALUES ('Excelente Filme!', 1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Muito bom!', 1, 2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Excelente Filme!', 1, 2);
 
 
