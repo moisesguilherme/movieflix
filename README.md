@@ -3,12 +3,12 @@
 
 # Sobre o projeto (Em desenvolvimento....)
 
-MovieFlix é uma aplicação FullStack web e mobile construída durante o **Bootcamp DevSuperior**, evento organizado pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
+MovieFlix é uma aplicação FullStack web e mobile construída durante o **Bootcamp DevSuperior**, curso da escola de programação [DevSuperior](https://devsuperior.com "Site da DevSuperior").
 
 
 O sistema MovieFlix consiste em um banco de filmes, os quais podem ser listados e avaliados pelos usuários. Usuários podem ser visitantes (VISITOR) e membros (MEMBER). Apenas usuários membros podem inserir avaliações no sistema.
 
-Ao acessar o sistema, o usuário deve fazer seu login. Apenas usuários logados podem navegar nos filmes. Logo após fazer o login, o usuário vai para a listagem de filmes, que mostra os filmes de forma paginada, ordenados alfabeticamente por título. O usuário pode filtrar os filmes por gênero.
+Ao acessar o sistema, o usuário faz o seu login. Apenas usuários logados podem navegar nos filmes. Logo após fazer o login, o usuário vai para a listagem de filmes, que mostra os filmes de forma paginada, ordenados alfabeticamente por título. O usuário pode filtrar os filmes por gênero.
 
 Ao selecionar um filme da listagem, é mostrada uma página de detalhes, onde é possível ver todas informações do filme, e também suas avaliações. Se o usuário for usuário membro, ele pode ainda registrar uma avaliação nessa tela.
 
