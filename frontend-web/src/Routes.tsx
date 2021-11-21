@@ -2,10 +2,13 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from './pages/Home';
 import Movies from './pages/Movies';
+import Navbar from 'core/components/Navbar';
 
 const Routes = () => {
 
     return (
+       <>
+        <Navbar/>
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact>
@@ -16,6 +19,7 @@ const Routes = () => {
                 </Route>
             </Switch>
         </BrowserRouter>
+        </>
     )
 };
 
