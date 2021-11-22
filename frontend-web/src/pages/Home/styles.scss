@@ -1,6 +1,43 @@
-.text{
-    left: 138px;
-    right: 1237px;
+.home-container {
+    display: flex;
+    flex:1;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 1px solid red;
+    background-color: #525252
+}
+
+
+.home-text{
     font-family: Roboto;
     color: #FFFFFF;
+    margin-top: 81px;
+    margin-left: 97px;
+}
+
+.text-tile{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 65px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    margin-top: 19px;
+    
+}
+
+.text-subtitle{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: -0.015em;
+    color: #F2F2F2;
+    width: 320px;
+}
+
+.main-image{
+    margin-top: 50px;
 }

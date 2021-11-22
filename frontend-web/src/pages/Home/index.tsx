@@ -1,5 +1,9 @@
+import Login from 'pages/Auth/components/Login';
+import { ReactComponent as MainImage } from 'assets/images/main-image.svg';
 import React from 'react';
-//import './styles.scss';
+
+
+import './styles.scss';
 
 type Props = {
     text: string;
@@ -7,10 +11,19 @@ type Props = {
 
 const Home = ( {text } : Props) => {
     return(
-
-        <h5 className="text">{text}</h5>
+        <div className="home-container">
+            <div className="home-text">
+                <h5 className="text-tile">Avalie Filmes</h5>
+                <h1 className="text-subtitle">Diga o que você achou do seu filme favorito</h1>
+                <div className="home-image">
+                    <MainImage className="main-image" />
+                </div>
+            </div>
+            <Login />
+        </div>
     )
 }
 
 export default Home;
+
 

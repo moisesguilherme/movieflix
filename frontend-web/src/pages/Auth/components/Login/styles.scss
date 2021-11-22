@@ -1,0 +1,21 @@
+.login-text{
+    color: #FFF;
+    justify-content: center;
+    text-align: center;
+    margin-top: 74px;
+    margin-bottom: 35px;
+}
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: var(--color-primary);
+}
+
+.login-card{
+    background-color: #6C6C6C;
+    width: 479px;
+    height: 573px;
+}
