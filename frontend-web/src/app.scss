@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
+
+:root {
+    --primary: #FFC700;
+    --bg-primary: #FFC700;
+}
+
+
 * {
     font-family: 'Open Sans', sans-serif;
   }
-  
+   
+   
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
     font-weight: 700;
@@ -42,7 +50,7 @@
   .input-base {
     border: 1px solid #E1E1E1;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 4px;
     font-size: 18px;
     line-height: 25px;
     letter-spacing: -0.015em;

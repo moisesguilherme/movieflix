@@ -8,16 +8,16 @@ const Login = () => {
             <h1 className="login-text">LOGIN</h1>
             <form className="login-form">
                 <input
-                    className="form-control input-base"
+                    className="input-base"
                     type="email"
                     placeholder="Email"
                 />
                 <input
-                    className="form-control input-base"
+                    className="input-base"
                     type="password"
-                    placeholder="senha"
+                    placeholder="Senha"
                 />
-                <div className="login-submit">
+                <div className="login-submit login-submit-text">
                     FAZER LOGIN
                 </div>
             </form>
