@@ -1,16 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { getAccessTokenDecoded, logout } from 'core/utils/auth';
+
 import './styles.scss';
 
-const Navbar = () => (
-    <nav className="main-nav">
+const Navbar = () => {
+
+    const [currentUser, setCurrentUser] = useState('');
+    const location = useLocation();
+
+    useEffect(() => {
+        const currentUserData = getAccessTokenDecoded();
+        setCurrentUser(currentUserData.user_name);
+    }, [location]);
+
+    
+    const handleLogout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault();
+        logout();
+    }
+
+    return (
+        <nav className="main-nav">
             <a href="link" className="nav-logo-text">
                 <h4>MovieFlix</h4>
             </a>
 
-            <a href="link" className="btn-exit btn-text active">
-                SAIR
-            </a>
-    </nav>
-)
+            {
+                currentUser && (
+            
+                    <Link to="/" 
+                        onClick={(e) => {handleLogout(e)}}
+                        className="btn-exit btn-text active">
+                        SAIR
+                    </Link>
+            )}     
+            
+        </nav>
+    )
+}
 
 export default Navbar;

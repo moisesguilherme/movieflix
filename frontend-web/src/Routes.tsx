@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Navbar from 'core/components/Navbar';
+import history from './core/utils/history';
 
 const Routes = () => {
 
     return (
-       <>
-        <Navbar/>
-        <BrowserRouter>
+        <Router history={history}>
+            <Navbar />
             <Switch>
                 <Route path="/" exact>
                     <Home text="Home Movieflix" />
@@ -18,8 +18,7 @@ const Routes = () => {
                     <Movies text="Movies" />
                 </Route>
             </Switch>
-        </BrowserRouter>
-        </>
+        </Router>
     )
 };
 
