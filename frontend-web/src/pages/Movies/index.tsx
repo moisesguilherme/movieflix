@@ -7,8 +7,9 @@ type Props = {
 
 const Movies = ( {text } : Props) => {
     return(
-
-        <h5 className="text">{text}</h5>
+        <>
+            <h5 className="text">{text}</h5>
+        </>
     )
 }
 
