@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
-import { CLIENT_ID, CLIENT_SECRET} from './auth';
+import { CLIENT_ID, CLIENT_SECRET, getSessionData, logout } from './auth';
 
 type LoginData = {
     username: string;
@@ -14,6 +14,16 @@ export const makeRequest = (params: AxiosRequestConfig) => {
        ...params,
        baseURL: BASE_URL
     });
+}
+
+export const makePrivateRequest = (params: AxiosRequestConfig) => {
+    const sessionData = getSessionData();
+    
+    const headers = {
+        'Authorization': `Bearer ${sessionData.access_token}`
+    }
+
+    return makeRequest({ ...params, headers })
 }
 
 
