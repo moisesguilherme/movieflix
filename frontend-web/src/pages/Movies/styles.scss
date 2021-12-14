@@ -8,11 +8,17 @@
 .movies-container{
     display: flex;
     flex: 1;
+    flex-direction: column;
+    background: #525252;
+    height: 100vh;
+}
+
+.movies-card-container{
+    display: flex;
     background: #525252;
     flex-direction: row;
     padding-left: 5%;
     padding-left: 5%;
     padding-bottom: 40px;
     padding-top: 10px;
-    height: 100vh;
 }
