@@ -7,7 +7,7 @@ type Props = {
 }
 
 const MovieCard = ({ movie }: Props) => (
-    <div className="card-base border-radius-10 movie-card">
+    <div className="movie-card">
         <img src={movie.imgUrl} alt={movie.title} className="movie-card-image"/>
         <div className="movie-info">
             <h6 className="movie-title">
@@ -16,8 +16,8 @@ const MovieCard = ({ movie }: Props) => (
             <h6 className="movie-year">
                 {movie.year}
             </h6>
-            <h6 className="movie-year">
-                {movie.synopsis}
+            <h6 className="movie-subtitle">
+                {movie.subTitle}
             </h6>
         </div>
     </div>

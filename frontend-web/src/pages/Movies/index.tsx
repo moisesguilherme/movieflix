@@ -4,7 +4,7 @@ import { Movie, MoviesResponse } from 'core/types/movie';
 import MovieCard from './components/MovieCard';
 import { makePrivateRequest } from 'core/utils/request';
 
-//import './styles.scss';
+import './styles.scss';
 
 type Props = {
     text: string;
@@ -18,7 +18,8 @@ const Movies = ( {text } : Props) => {
     const getMovies = useCallback(() => {
         const params = {
             page: 0, 
-            linesPerPage: 10,
+            linesPerPage: 4,
+            orderBy: 'id'
         }
 
         setIsLoading(true);
@@ -36,7 +37,7 @@ const Movies = ( {text } : Props) => {
     
     return (
         <>
-                <div className="catalog-movies">
+                <div className="movies-container">
                     {isLoading ? <div>Carregando</div> : (
                         moviesResponse?.content.map(movie => (
                             <Link to={`/movies/${movie.id}`} key={movie.id}>

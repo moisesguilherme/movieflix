@@ -4,3 +4,15 @@
     font-family: Roboto;
     color: #FFFFFF;
 }
+
+.movies-container{
+    display: flex;
+    flex: 1;
+    background: #525252;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-left: 5%;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    height: 100vh;
+}
