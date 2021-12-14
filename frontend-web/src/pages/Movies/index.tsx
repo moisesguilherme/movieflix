@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie, MoviesResponse } from 'core/types/movie';
 import MovieCard from './components/MovieCard';
+import MovieCardLoader from './components/Loaders/MovieCardLoader';
 import { makePrivateRequest } from 'core/utils/request';
 
 import './styles.scss';
@@ -37,15 +38,15 @@ const Movies = ( {text } : Props) => {
     
     return (
         <>
-                <div className="movies-container">
-                    {isLoading ? <div>Carregando</div> : (
+                 <div className="movies-container">
+                    {isLoading ? <MovieCardLoader/> : (
                         moviesResponse?.content.map(movie => (
                             <Link to={`/movies/${movie.id}`} key={movie.id}>
                                 <MovieCard movie={movie}/>
                             </Link>
                         ))
                     )}
-                </div>
+                </div> 
         </>
     )
 }
