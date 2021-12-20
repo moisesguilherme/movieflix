@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Movie, MoviesResponse } from 'core/types/movie';
+import { Genre, MoviesResponse } from 'core/types/movie';
+import { makePrivateRequest } from 'core/utils/request';
 import MovieCard from './components/MovieCard';
 import MovieCardLoader from './components/Loaders/MovieCardLoader';
-import { makePrivateRequest } from 'core/utils/request';
 import Pagination from 'core/components/Pagination';
+import MovieFilters from 'core/components/MovieFilters';
 
 import './styles.scss';
+
 
 type Props = {
     text: string;
@@ -17,12 +19,13 @@ const Movies = ({ text }: Props) => {
     const [moviesResponse, setMoviesResponse] = useState<MoviesResponse>();
     const [isLoading, setIsLoading] = useState(false);
     const [activePage, setActivePage] = useState(0);
+    const [genre, setGenre] = useState<Genre>();
 
     const getMovies = useCallback(() => {
         const params = {
             page: activePage,
             linesPerPage: 4,
-            orderBy: 'id'
+            genreId: genre?.id
         }
 
         setIsLoading(true);
@@ -32,14 +35,33 @@ const Movies = ({ text }: Props) => {
                 setIsLoading(false);
 
             })
-    }, [activePage])
+    }, [activePage, genre])
 
     useEffect(() => {
         getMovies();
     }, [getMovies]);
 
+
+    const handleChangeGenre = (genre: Genre) => {
+        setActivePage(0);
+        setGenre(genre);
+    }
+
+    const clearFilters = () => {
+        setActivePage(0);
+        setGenre(undefined);
+    }
+
     return (
         <div className="movies-container">
+
+            <div className="filter-container">
+                 <MovieFilters
+                    genre={genre}
+                    handleChangeGenre={handleChangeGenre}
+                    clearFilters={clearFilters}
+                />
+            </div>
             <div className="movies-card-container">
                 {isLoading ? <MovieCardLoader /> : (
                     moviesResponse?.content.map(movie => (
@@ -51,12 +73,12 @@ const Movies = ({ text }: Props) => {
             </div>
 
             {moviesResponse && (
-                    <Pagination
-                        totalPages={moviesResponse.totalPages}
-                        activePage={activePage}
-                        onChange={page => setActivePage(page)}
-                    />
-                )}
+                <Pagination
+                    totalPages={moviesResponse.totalPages}
+                    activePage={activePage}
+                    onChange={page => setActivePage(page)}
+                />
+            )}
 
         </div>
     )

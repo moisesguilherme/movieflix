@@ -10,11 +10,11 @@ export type Movie = {
     year: string;
     imgUrl: string;
     synopsis: string;
-    genres: Genere[];
+    genres: Genre[];
     reviews: Review[];
 }
 
-export type Genere = {
+export type Genre = {
     id: number;
     name: string;   
 }

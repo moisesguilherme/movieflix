@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/react-select": "^5.0.1",
+    "react-select": "^5.2.1"
+  }
+}
