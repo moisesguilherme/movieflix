@@ -1,0 +1,154 @@
+.movie-details-container {
+    display: flex;
+    flex:1;
+    height: 100vh;
+    background-color: var(--background);
+    
+}
+
+.movie-details{
+    margin-top: 40px; 
+    margin-right: 10%;
+    margin-left: 10%;
+    height: 510px;
+    padding: 40px 40px;
+}
+
+
+.movie-details-info {
+    display: flex;
+    flex-direction: row;    
+}
+
+.movie-details-card {
+    width: 100%;
+}
+
+.movie-details-image {
+    width: 500px;
+    height: 314px;
+}
+
+.movie-details-title{
+    font-size: 36px;
+    line-height: 49px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+
+.movie-description-year{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.movie-description-subtitle{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+.movie-description-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: justify;
+    letter-spacing: -0.015em;
+    color: #9E9E9E; 
+    padding: 20px 20px ;
+    height: auto;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+.movie-details{
+    font-size: 48px;
+}
+
+@media (max-width: 768px){
+    .movie-details{
+        display: flex;
+        flex-direction: column;        
+    }
+
+    .movie-details-info {
+        flex-direction: column;
+    }
+
+    .movie-details-card {
+        width: 530px;
+        margin: 0 auto;
+    }
+
+    .movie-details {
+        flex-direction: column;
+    }
+
+    .movie-info-fields {
+        border: 0px;
+        padding: 0px 10px;
+        margin-bottom: 40px;
+        width: 530px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .movie-description-text {
+        width: 460px;
+    }
+}
+
+@media (max-width: 576px){
+    .movie-details-container {
+        margin-top: 5px;
+        padding: 10px; 
+    }
+
+    .movie-details {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+
+    }
+
+    .movie-details-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;       
+    }
+
+    .movie-details-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .movie-info-fields {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-description-text {
+        width: 90%;
+    }
+}
