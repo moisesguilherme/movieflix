@@ -25,10 +25,8 @@ const Login = () => {
 
 
     const onSubmit = (data: FormState) => {
-        console.log("Chamou")
         makeLogin(data)
             .then(response => {
-                console.log("login: " + response.data);
                 setHasError(false);
                 saveSessionData(response.data);
                 history.replace(from);

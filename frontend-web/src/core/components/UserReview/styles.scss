@@ -1,0 +1,42 @@
+.review-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.review-user{
+    display: flex;
+    flex-direction: row;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.015em;
+    justify-content: left;
+    align-items: baseline;
+    color: #FFFFFF;
+    
+}
+
+.name{
+    padding-left: 10px;
+}
+
+.movie-review-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: justify;
+    letter-spacing: -0.015em;
+    color: #9E9E9E; 
+    padding: 13px 22px ;
+    height: auto;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 8px;;
+    margin-bottom: 24px;
+}

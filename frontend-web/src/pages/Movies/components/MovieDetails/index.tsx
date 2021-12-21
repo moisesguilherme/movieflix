@@ -4,9 +4,11 @@ import { Movie } from 'core/types/movie';
 import { makePrivateRequest } from 'core/utils/request';
 import MovieDescriptionLoader from '../../components/Loaders/MovieCardLoader';
 import MovieInfoLoader from '../../components/Loaders/MovieCardLoader';
-//import ProductDescriptionLoader from '../Loaders/ProductDescriptionLoader';
-//import ProductInfoLoader from '../Loaders/ProductInfoLoader';
+import MovieReview from '../MovieReviews';
+//import MovietDescriptionLoader from '../Loaders/MovieDescriptionLoader';
+//import MovieInfoLoader from '../Loaders/MovieInfoLoader';
 import './styles.scss';
+
 
 type ParamsType = {
     movieId: string;
@@ -68,6 +70,9 @@ const MovieDetails = () => {
                     </div>
                 </div>
             </div>
+            <>
+            <MovieReview reviews={movie?.reviews}/>  
+            </>
         </div>
     );
 

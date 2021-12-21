@@ -7,10 +7,12 @@
 
 .movies-container{
     display: flex;
+    flex:1;
     flex-direction: column;
-    background: #525252;
     height: 100vh;
+    background: #525252;
     align-items:center;
+
 }
 
 .movies-card-container{

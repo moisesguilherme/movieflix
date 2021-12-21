@@ -1,6 +1,20 @@
+import { UseFormSetFocus } from "react-hook-form"
+
 export type MoviesResponse = {
     content: Movie[];
     totalPages: number;
+}
+
+export type User = {
+    id: number;
+    name: string;
+    email: string;
+    roles: Role;
+}
+
+export type Role = {
+    id: number;
+    authority: String;
 }
 
 export type Movie = {
@@ -21,5 +35,7 @@ export type Genre = {
 
 export type Review = {
     id: number;
-    text: string;   
+    text: string;
+    movie: Movie;
+    user: User; 
 }
