@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
-import { CLIENT_ID, CLIENT_SECRET, getSessionData, logout } from './auth';
+import { CLIENT_ID, CLIENT_SECRET, getSessionData } from './auth';
 
 type LoginData = {
     username: string;

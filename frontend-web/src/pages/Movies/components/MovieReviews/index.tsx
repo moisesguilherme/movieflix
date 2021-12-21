@@ -1,59 +1,90 @@
-import React, { useEffect, useState } from 'react';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
-import { Review, Movie } from 'core/types/movie';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import { Review } from 'core/types/movie';
+import history from 'core/utils/history';
 import { makePrivateRequest } from 'core/utils/request';
-import './styles.scss';
 import UserReview from 'core/components/UserReview';
+import './styles.scss';
+
+type FormState = {
+    text: string;
+}
 
 type Props = {
     reviews?: Review[];
+    movieId?: Number;
+    onInsert: Function
 }
 
 const MovieReview = ({
     reviews,
-    //handleChangeText
+    movieId,
+    onInsert
 }: Props) => {
     const [isLoadingReviews, setIsLoadingReviews] = useState(false);
-    //const [review, setReview] = useState<Review[]>();
+    const [review, setReview] = useState('');
 
-    useEffect(() => {
-        /*setIsLoadingReviews(true);
-        makePrivateRequest({ url:  `/reviews?movieId=${movieId}`})
-            .then(response => {
-                setReview(response.data);
-                console.log(movieId)
-                console.log(response.data);
-            
+
+    const handleChangeReview = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setReview(event.target.value)
+    } 
+    
+    const onSubmit = (event:  React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+
+        const payload = {
+            movieId,
+            text:review
+        }
+        
+
+        makePrivateRequest({
+                url: `/reviews`,
+                method:'POST', 
+                data: payload,
             })
-            .finally(() => setIsLoadingReviews(false));*/
-            console.log(reviews);
-    }, [reviews]);
+            .then(() => {
+                //history.push('/movies/' + movieId);
+                toast.success("Avaliação do filme foi salvo com sucesso!", {delay:400});
+                onInsert();
+                
+            })
+            .catch(() => {
+                toast.error('Erro ao salvar a avaliação!');
+            })
+    }
+
 
     return (
         <div className="reviews-container">
             <div className="card-base border-radius-4 input-search">
-                <input
-                    type="text"
-                    //value={text}
-                    className="form-control"
-                    placeholder="Deixe sua avaliação aqui"
-                //onChange={event => handleChangeText(event.target.value)}
-                />
-                <button className="review-submit review-submit-text" >
-                    SALVAR AVALIAÇÃO
-                </button>
+                    <textarea
+                        className="text-field"
+                        value={review}
+                        placeholder="Deixe sua avaliação aqui"
+                        onChange={ handleChangeReview }
+                    />
+                    
+                    <button 
+                        className={`review-submit review-submit-text ${review.length <= 5 ? 'disabled' : ''} `}
+                        disabled={review.length <= 5}
+                        onClick={(e) => onSubmit(e)}                        
+                    >
+                        SALVAR AVALIAÇÃO
+                    </button>
             </div>
 
-            <div className="card-base border-radius-4 review-user-container">
-                {reviews?.map(review => (
-                        <UserReview userName={review.user.name} 
-                                    reviewText={review.text} 
-                                    key={review.id}
-                                    />        
-                    ))
-                }   
-            </div>
-
+            {(reviews?.length !== 0) &&
+                <div className="card-base border-radius-4 review-user-container">
+                    {reviews?.map(review => (
+                        <UserReview userName={review.user.name}
+                            reviewText={review.text}
+                            key={review.id}
+                        />
+                    )).reverse()
+                    }
+                </div>
+            }
         </div>
 
     )

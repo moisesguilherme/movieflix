@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Movie } from 'core/types/movie';
 import { makePrivateRequest } from 'core/utils/request';
 import MovieDescriptionLoader from '../../components/Loaders/MovieCardLoader';
@@ -9,7 +9,6 @@ import MovieReview from '../MovieReviews';
 //import MovieInfoLoader from '../Loaders/MovieInfoLoader';
 import './styles.scss';
 
-
 type ParamsType = {
     movieId: string;
 }
@@ -18,22 +17,23 @@ const MovieDetails = () => {
     const { movieId } = useParams<ParamsType>();
     const [movie, setMovie] = useState<Movie>();
     const [isLoading, setIsLoading] = useState(false);
+    const [updateReview, setUpdateReview] = useState(1);
 
     useEffect(() => {
         setIsLoading(true);
         makePrivateRequest({ url: `/movies/${movieId}` })
             .then(response => setMovie(response.data))
             .finally(() => setIsLoading(false));
-    }, [movieId]);
+    }, [movieId, updateReview]);
+
+    const onInsert = () => {
+        console.log(">>> chamou o update")
+        setUpdateReview(updateReview + 1);
+    }
 
     return (
         <div className="movie-details-container">
             <div className="card-base border-radius-10 movie-details">
-                {/*<Link to="/movies" className="movie-details-goback">
-                     <ArrowIcon className="icon-goback" />
-                    <h1 className="text-goback">voltar</h1> 
-                </Link>
-                */}
                 <div className="movie-details-info">
                         {isLoading ? <MovieInfoLoader /> : (
                             <>
@@ -71,7 +71,7 @@ const MovieDetails = () => {
                 </div>
             </div>
             <>
-            <MovieReview reviews={movie?.reviews}/>  
+              <MovieReview reviews={movie?.reviews} movieId={movie?.id} onInsert={onInsert}/>  
             </>
         </div>
     );

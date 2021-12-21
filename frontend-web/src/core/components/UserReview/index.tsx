@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { makePrivateRequest } from 'core/utils/request';
-import { Review } from 'core/types/movie';
+import React from 'react';
 import { ReactComponent as StarIcon } from 'core/assets/images/star.svg';
 import './styles.scss'
 
