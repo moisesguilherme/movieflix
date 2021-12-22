@@ -23,7 +23,7 @@
     margin-right: 10px;
 
     &.active {
-        background: var(--bg-primary);
+        background: var(--primary);
     }
 }
 
@@ -36,13 +36,13 @@
 
 .pagination-next {
     margin-left: 15px;
-    color: var(--bg-primary);
+    color: var(--primary);
     cursor: pointer;
 }
 
 .page-active {
     cursor: pointer;;
-    color: var(--bg-primary);
+    color: var(--primary);
 }
 
 .page-inactive {

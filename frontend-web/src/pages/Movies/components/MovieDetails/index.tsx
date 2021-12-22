@@ -34,21 +34,19 @@ const MovieDetails = () => {
         <div className="movie-details-container">
             <div className="card-base border-radius-10 movie-details">
                 <div className="movie-details-info">
-                        {isLoading ? <MovieInfoLoader /> : (
-                            <>
-                                <div className="movie-details-card">
-                                    <img 
-                                        src={movie?.imgUrl} 
-                                        alt={movie?.title} 
-                                        className="movie-details-image"
-                                    />
-                                </div>
-                            </>
-                        )}                    
+                    {isLoading ? <MovieInfoLoader /> : (
+                        <div className="movie-details-card">
+                            <img
+                                src={movie?.imgUrl}
+                                alt={movie?.title}
+                                className="movie-details-image"
+                            />
+                        </div>
+                    )}
                     <div className="movie-details-card">
                         {isLoading ? <MovieDescriptionLoader /> : (
                             <>
-                               <div className="movie-info-fields">
+                                <div className="movie-info-fields">
                                     <h1 className="movie-details-title">
                                         {movie?.title}
                                     </h1>
@@ -57,7 +55,7 @@ const MovieDetails = () => {
                                 <h1 className="movie-description-year">
                                     {movie?.year}
                                 </h1>
-                                
+
                                 <h1 className="movie-description-subtitle">
                                     {movie?.subTitle}
                                 </h1>
@@ -70,11 +68,11 @@ const MovieDetails = () => {
                 </div>
             </div>
             <>
-              <MovieReview 
-                    reviews={movie?.reviews} 
-                    movieId={movie?.id} 
+                <MovieReview
+                    reviews={movie?.reviews}
+                    movieId={movie?.id}
                     onInsert={onInsert}
-                />  
+                />
             </>
         </div>
     );

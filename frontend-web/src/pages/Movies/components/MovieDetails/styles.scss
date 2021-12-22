@@ -17,11 +17,12 @@
 
 .movie-details-info {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
 }
 
 .movie-details-card {
     width: 100%;
+    padding-left: 15px;
 }
 
 .movie-details-image {

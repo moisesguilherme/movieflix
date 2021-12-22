@@ -21,7 +21,9 @@ const Movies = () => {
         const params = {
             page: activePage,
             linesPerPage: 4,
-            genreId: genre?.id
+            genreId: genre?.id,
+            orderBy: 'title',
+            direction:'ASC',
         }
 
         setIsLoading(true);
