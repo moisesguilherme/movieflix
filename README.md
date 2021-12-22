@@ -20,7 +20,7 @@ Um usuário possui nome, email e senha, sendo que o email é seu nome de usuári
 ![Mobile 1](in progress...)
 
 ## Layout web
-![Web 1](in progress...) (https://github.com/moisesguilherme/assets/blob/main/movieflix/front-web.png) 
+![Web 1](https://github.com/moisesguilherme/assets/blob/main/movieflix/front-web.png) 
 
 ![Web 2]
 
