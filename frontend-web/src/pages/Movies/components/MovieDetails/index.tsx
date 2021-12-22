@@ -27,7 +27,6 @@ const MovieDetails = () => {
     }, [movieId, updateReview]);
 
     const onInsert = () => {
-        console.log(">>> chamou o update")
         setUpdateReview(updateReview + 1);
     }
 
@@ -71,7 +70,11 @@ const MovieDetails = () => {
                 </div>
             </div>
             <>
-              <MovieReview reviews={movie?.reviews} movieId={movie?.id} onInsert={onInsert}/>  
+              <MovieReview 
+                    reviews={movie?.reviews} 
+                    movieId={movie?.id} 
+                    onInsert={onInsert}
+                />  
             </>
         </div>
     );

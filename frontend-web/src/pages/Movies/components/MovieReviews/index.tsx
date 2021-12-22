@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Review } from 'core/types/movie';
 import history from 'core/utils/history';
+import { getAccessTokenDecoded, isAllowedByRole } from 'core/utils/auth';
 import { makePrivateRequest } from 'core/utils/request';
 import UserReview from 'core/components/UserReview';
 import './styles.scss';
@@ -23,7 +24,13 @@ const MovieReview = ({
 }: Props) => {
     const [isLoadingReviews, setIsLoadingReviews] = useState(false);
     const [review, setReview] = useState('');
+    const [hasPermission, setHasPermission] = useState(false);
 
+    useEffect(() => {
+        const currentUser = getAccessTokenDecoded()
+        setHasPermission(currentUser.authorities.toString() === 'ROLE_MEMBER')
+    
+      }, [])
 
     const handleChangeReview = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setReview(event.target.value)
@@ -57,23 +64,27 @@ const MovieReview = ({
 
     return (
         <div className="reviews-container">
-            <div className="card-base border-radius-4 input-search">
-                    <textarea
-                        className="text-field"
-                        value={review}
-                        placeholder="Deixe sua avaliação aqui"
-                        onChange={ handleChangeReview }
-                    />
-                    
-                    <button 
-                        className={`review-submit review-submit-text ${review.length <= 5 ? 'disabled' : ''} `}
-                        disabled={review.length <= 5}
-                        onClick={(e) => onSubmit(e)}                        
-                    >
-                        SALVAR AVALIAÇÃO
-                    </button>
-            </div>
 
+             {hasPermission && (
+                <div className="card-base border-radius-4 input-search">
+                        <textarea
+                            className="text-field"
+                            value={review}
+                            placeholder="Deixe sua avaliação aqui"
+                            onChange={ handleChangeReview }
+                        />
+                        
+                        <button 
+                            className={`review-submit review-submit-text ${review.length <= 5 ? 'disabled' : ''} `}
+                            disabled={review.length <= 5}
+                            onClick={(e) => onSubmit(e)}                        
+                        >
+                            SALVAR AVALIAÇÃO
+                        </button>
+                </div>
+            ) 
+            }
+            
             {(reviews?.length !== 0) &&
                 <div className="card-base border-radius-4 review-user-container">
                     {reviews?.map(review => (
@@ -86,7 +97,6 @@ const MovieReview = ({
                 </div>
             }
         </div>
-
     )
 }
 

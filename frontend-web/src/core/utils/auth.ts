@@ -13,7 +13,7 @@ type LoginResponse = {
     userId: number;
 }
 
-export type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';
+export type Role = 'ROLE_VISITOR' | 'ROLE_MEMBER';
 
 type AccessToken = {
     exp: number;
@@ -41,6 +41,31 @@ export const getAccessTokenDecoded = () => {
     }catch(error){
         return {} as AccessToken;
     }   
+}
+
+export const isTokenValid = () => {
+    const { exp } = getAccessTokenDecoded();
+
+    return Date.now() <= exp * 1000;
+}
+
+export const isAuthenticated = () => {
+
+    // "authData" no localStorage
+    // access_token não pode estar espirado
+    const sessionData = getSessionData();
+
+    return sessionData.access_token && isTokenValid();
+}
+
+export const isAllowedByRole = (routeRoles: Role[] = []) => {
+    if(routeRoles.length === 0) {
+        return true;
+    }
+
+    const { authorities } = getAccessTokenDecoded();
+    
+    return routeRoles.some(role => authorities?.includes(role));   
 }
 
 export const logout = () => {

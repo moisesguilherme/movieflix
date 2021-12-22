@@ -10,11 +10,7 @@ import MovieFilters from 'core/components/MovieFilters';
 import './styles.scss';
 
 
-type Props = {
-    text: string;
-}
-
-const Movies = ({ text }: Props) => {
+const Movies = () => {
 
     const [moviesResponse, setMoviesResponse] = useState<MoviesResponse>();
     const [isLoading, setIsLoading] = useState(false);

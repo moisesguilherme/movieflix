@@ -1,10 +1,12 @@
 import React from 'react';
-import { Router, Route, Switch } from "react-router-dom";
+import { Redirect, Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Navbar from 'core/components/Navbar';
 import history from './core/utils/history';
 import MovieDetails from './pages/Movies/components/MovieDetails';
+import PrivateRoute from 'core/components/Routes/PrivateRoute';
+import { isAuthenticated } from "./core/utils/auth";
 
 const Routes = () => {
 
@@ -12,15 +14,22 @@ const Routes = () => {
         <Router history={history}>
             <Navbar />
             <Switch>
-                <Route path="/" exact>
-                    <Home text="Home Movieflix" />
-                </Route>
-                <Route path="/movies" exact>
-                    <Movies text="Movies" />
-                </Route>
-                <Route path="/movies/:movieId">
+            <Redirect from="/" to="/login" exact />
+                <Route
+                    path="/login"
+                    render={() => {
+                    return (isAuthenticated() ?
+                        <Redirect to='/movies' /> : <Home text="Home Movieflix" />
+                    )
+                    }}
+                />
+
+                <PrivateRoute path="/movies" exact>
+                    <Movies />
+                </PrivateRoute>
+                <PrivateRoute path="/movies/:movieId">
                     <MovieDetails/>
-                </Route>
+                </PrivateRoute>
             </Switch>
         </Router>
     )
