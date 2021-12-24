@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Review } from 'core/types/movie';
-import history from 'core/utils/history';
-import { getAccessTokenDecoded, isAllowedByRole } from 'core/utils/auth';
+import { getAccessTokenDecoded } from 'core/utils/auth';
 import { makePrivateRequest } from 'core/utils/request';
 import UserReview from 'core/components/UserReview';
 import './styles.scss';
 
-type FormState = {
-    text: string;
-}
 
 type Props = {
     reviews?: Review[];
@@ -22,7 +18,6 @@ const MovieReview = ({
     movieId,
     onInsert
 }: Props) => {
-    const [isLoadingReviews, setIsLoadingReviews] = useState(false);
     const [review, setReview] = useState('');
     const [hasPermission, setHasPermission] = useState(false);
 
@@ -51,7 +46,6 @@ const MovieReview = ({
                 data: payload,
             })
             .then(() => {
-                //history.push('/movies/' + movieId);
                 toast.success("Avaliação do filme foi salvo com sucesso!", {delay:400});
                 onInsert();
                 
