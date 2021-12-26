@@ -13,7 +13,7 @@ export async function login(userInfo: AuthProps) {
     const result = await api.post('oauth/token', data, {
         headers:{
             Authorization: TOKEN,
-            "Content-Type": "Content-Type: application/x-www-form-urlencoded",
+            "Content-Type": "application/x-www-form-urlencoded",
         },
     });
 

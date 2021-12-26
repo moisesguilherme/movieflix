@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TextInput } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { text, theme } from "../styles";
 
@@ -9,7 +10,9 @@ import arrow from "../assets/arrow.png"
 import { login } from '../services/auth';
 
 const Login: React.FC = () => {
+    const navigation = useNavigation();
     const [hidePassword, setHidePassord] = useState(true);
+    const [userFetchData, setUserFechData] = useState({});
     const [userInfo, setUserInfo] = useState({
         username: "",
         password: ""
@@ -17,8 +20,14 @@ const Login: React.FC = () => {
 
 
     async function handleLogin() {
-        const data = await login(userInfo);
-        console.warn(data);
+        try{
+            const data = await login(userInfo);
+            setUserFechData(data);
+            navigation.navigate("Movies");
+        }catch(e){
+            console.warn("Login inválido")
+            //console.warn(e);
+        }        
     }
 
 
