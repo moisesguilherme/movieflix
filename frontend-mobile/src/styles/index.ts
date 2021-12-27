@@ -188,6 +188,51 @@ const theme = StyleSheet.create({
         backgroundColor: colors.background,
         padding: 10,
     },
+    detailCards: {
+        width: "100%",
+        height: "100%",
+        backgroundColor: colors.white,
+        //elevation: 4,
+        borderRadius: 20, 
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        justifyContent: "space-around",
+        padding: 20,
+    },
+    detailContainer: {
+        backgroundColor: colors.white,
+        padding: 20,        
+    },
+    goBackContainer: {
+        width: 290,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        marginVertical: 10,
+    },
+    movieImageContainer: {
+        width: '100%',
+        borderWidth: 1,
+        borderColor: colors.lightGray,
+        alignItems: "center",
+        borderRadius: 20,
+    },
+    movieImage: {
+        width: 220,
+        height: 220,
+    },
+    scrollTextContainer:{
+        marginVertical: 20,
+        padding: 20,
+        borderWidth: 0.5,
+        borderRadius: 10,
+        borderColor: colors.lightGray,
+    },    
 });
 
 const nav = StyleSheet.create({
