@@ -75,6 +75,21 @@ const text = StyleSheet.create({
     logoutText: {
         color: colors.black,
     },
+    movieTitle: {
+        fontSize: 20,
+        fontWeight: "700",
+        color: colors.white,
+    },
+    movieYear: {
+        fontSize: 16,
+        color: colors.primary,
+        fontWeight: "bold",
+    },
+    movieSubtitle: {
+        fontSize: 16,
+        fontWeight: "400",
+        color: colors.white,
+    },
 })
 
 
@@ -139,7 +154,40 @@ const theme = StyleSheet.create({
     },
     toggle:{
         margin: 0,
-    }
+    },
+    movieCard: {
+        width: "100%",
+        backgroundColor: colors.mediumGray,
+        borderRadius: 4,
+        //elevation: 4, 
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        alignItems: "center",
+        justifyContent: "space-around",
+        marginVertical: 10,
+    },
+    movieImg: {
+        width: "100%",
+        height: 165,
+        marginTop: 26,
+        marginRight: 0,
+        marginLeft: 0,
+    },
+    movieDescription:{
+        width: "100%",
+        padding: 20,
+        borderTopColor: colors.lightGray,
+        borderTopWidth: 1,
+    },
+    scrollContainer: {
+        backgroundColor: colors.background,
+        padding: 10,
+    },
 });
 
 const nav = StyleSheet.create({
