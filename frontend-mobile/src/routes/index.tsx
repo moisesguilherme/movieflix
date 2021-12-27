@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from  '@react-navigation/stack';
-import { Home, Movies, Login} from '../pages';
+import {  Movies, Login} from '../pages';
+import { NavBar } from "../components";
 import { Text } from "react-native";
 
 import { colors, nav } from '../styles';
@@ -18,6 +19,7 @@ const Routes: React.FC = () => {
                 backgroundColor: colors.primary,
             },
             headerLeft: () => <HeaderText />,
+            headerRight: () => <NavBar/>
         }}
     >
         <Stack.Screen 

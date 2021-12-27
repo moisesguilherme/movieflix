@@ -71,7 +71,10 @@ const text = StyleSheet.create({
         color: colors.white,
         textTransform: "uppercase",
         marginBottom: 50, 
-    }
+    },
+    logoutText: {
+        color: colors.black,
+    },
 })
 
 
@@ -145,6 +148,16 @@ const nav = StyleSheet.create({
         fontWeight: "bold",
         marginLeft: 10,
         fontSize: 24,
+    },
+    logoutBtn: {
+        width: 100,
+        height: 30,
+        borderWidth: 1,
+        borderColor: colors.black,
+        borderRadius: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        marginRight: 20,
     },
 });
 
