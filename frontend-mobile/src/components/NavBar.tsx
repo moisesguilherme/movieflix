@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, Text } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { doLogout, isAuthenticated } from '../services/auth';
 
 import { nav, text } from '../styles';
@@ -9,6 +9,7 @@ import { nav, text } from '../styles';
 const NavBar: React.FC = () => {
     const [authenticated, setAuthenticated] = useState(false);
     const navigation = useNavigation();
+    const route = useRoute();
 
     async function logged() {
         const result = await isAuthenticated();
@@ -27,7 +28,7 @@ const NavBar: React.FC = () => {
 
     return (
         <>
-            {authenticated && 
+            { (authenticated && route.name != "Login") && 
             (
                 <TouchableOpacity
                     style={nav.logoutBtn}
