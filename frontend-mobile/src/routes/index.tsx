@@ -1,10 +1,10 @@
 import React from 'react'
 import { createStackNavigator } from  '@react-navigation/stack';
 import {  Movies, Login, MovieDetails} from '../pages';
-import { NavBar } from "../components";
+import { NavBar } from "../core/components";
 import { Text } from "react-native";
 
-import { colors, nav } from '../styles';
+import { colors, nav } from '../core/assets/styles';
 
 const Stack = createStackNavigator();
 

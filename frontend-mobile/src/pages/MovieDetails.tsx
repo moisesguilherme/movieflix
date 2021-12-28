@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, ActivityIndicator, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { api, makePrivateRequest } from '../services';
-import { theme, colors, text } from '../styles';
+import { api, makePrivateRequest } from '../core/utils';
+import { theme, colors, text } from '../core/assets/styles';
 import { useNavigation } from '@react-navigation/native';
 
 
-import arrow from '../assets/leftArrow.png'
+import arrow from '../core/assets/leftArrow.png'
 
 
 const MovieDetails = ({ route: { params: { id } }} : any) => {

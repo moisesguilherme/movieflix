@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, Image, TextInput } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { text, theme } from "../styles";
+import { text, theme } from "../core/assets/styles";
 
-import eyesOpened from "../assets/eyes-opened.png"
-import eyesClosed from "../assets/eyes-closed.png"
-import arrow from "../assets/arrow.png"
-import { login } from '../services/auth';
+import eyesOpened from "../core/assets/eyes-opened.png"
+import eyesClosed from "../core/assets/eyes-closed.png"
+import arrow from "../core.assets/arrow.png"
+import { login } from '../core/utils/auth';
 
 const Login: React.FC = () => {
     const navigation = useNavigation();

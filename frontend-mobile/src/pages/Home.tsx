@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
-import { theme } from '../styles'
+import { theme } from '../core/assets/styles'
 
 const Home: React.FC = ({ }) => {
 

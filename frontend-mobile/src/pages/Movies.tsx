@@ -1,47 +1,77 @@
 import React, { useState, useEffect } from 'react'
-import { ScrollView, ActivityIndicator } from 'react-native'
-import { MovieCard } from "../components";
-import { api, TOKEN, makePrivateRequest } from '../services';
-import { theme, colors } from '../styles';
+import { ScrollView, View, ActivityIndicator, FlatList } from 'react-native'
+import { MovieCard } from "../core/components";
+import { api, TOKEN, makePrivateRequest } from '../core/utils';
+import { theme, colors } from '../core/assets/styles';
+import { Genre, Movie } from "../core/types/Movie";
 
 
 const Movies: React.FC = () => {
-    const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(false);
 
-    async function fillMovies() {
-        setLoading(true);
+    const [movies, setMovies] = useState<Movie[]>()
+    const [page, setPage] = useState(0)
+    const [isLoading, setIsLoading] = useState(true)
+    const [isLoadingMore, setIsLoadingMore] = useState(false)
+    const [genre, setGenre] = useState<Genre>()
+
+       
+    const fillMovies = async () => {
         //?page=0&linesPerPage=10&direction=ASC&orderBy=title
-        
+
         const params = {
             linesPerPage: 6,
-          }
+            page,
+            genreId: genre?.id
+        }
 
-        const res = await makePrivateRequest({ url: '/movies', params})
-        const { content } = res.data;
-                
-        setMovies(content);
-        setLoading(false);
+        const response = await makePrivateRequest({ url: '/movies', params })
+        const { content } = response.data;
+
+        if (!response)
+            setIsLoading(true)
+
+        if (page > 0) {
+            setMovies(previousData => [...previousData, ...content])
+        } else {
+            setMovies(content)
+        }
+
+        setIsLoading(false)
+        setIsLoadingMore(false)
+    }
+
+    //Infinity scroll
+    const loadMore = (distance: number) => {
+        if (distance < 1)
+            return
+
+        setIsLoadingMore(true)
+        setPage(previousPage => previousPage + 1)
+        fillMovies()
     }
 
     useEffect(() => {
         fillMovies();
     }, [])
 
-    const data = movies;
 
     return (
-        <ScrollView contentContainerStyle={theme.scrollContainer}>
-            
-            {loading ? (
-                <ActivityIndicator size="large" color={colors.primary} />
-            ) :
-                (data.map((movie) => (
-                    <MovieCard {...movie} key={movie.id} />
-                )))
-            }
-
-        </ScrollView>
+        <View>
+            <FlatList
+                data={movies}
+                keyExtractor={movie => String(movie.id)}
+                renderItem={({ item }) => (
+                    <MovieCard  
+                        {...item}
+                    key={item.id} />
+                )}
+                numColumns={1}
+                showsVerticalScrollIndicator={false}
+                onEndReachedThreshold={0.1} 
+                onEndReached={({ distanceFromEnd }) => loadMore(distanceFromEnd)}
+                ListFooterComponent={isLoadingMore ? <ActivityIndicator style={{ marginBottom: 20 }} color={colors.yellow} /> : <></>}
+            />
+        </View>
     )
 
 };
