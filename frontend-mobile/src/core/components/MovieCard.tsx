@@ -28,7 +28,7 @@ const MovieCard: React.FC<Movie> = ( {id, title, subTitle, year, imgUrl, synopsi
         <View style={theme.movieDescription}>
             <Text style={text.movieTitle}>{title}</Text>
             <Text style={text.movieYear}>{year}</Text>
-            <Text style={text.movieSubtitle}>{subTitle}</Text>
+            <Text style={text.movieSubTitle}>{subTitle}</Text>
         </View>    
     </TouchableOpacity>
     );

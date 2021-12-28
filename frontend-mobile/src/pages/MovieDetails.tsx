@@ -42,29 +42,35 @@ const MovieDetails = ({ route: { params: { id } }} : any) => {
         <View style={theme.detailContainer}>
         {
             loading ? 
-            <ActivityIndicator size="large" color={colors.primary} /> : (
-                <View style={theme.detailCards }>
-                    <TouchableOpacity 
+            <ActivityIndicator size="large" color={colors.white} /> : (
+                
+                <View style={theme.detailCards}>
+                    
+                    {/* <TouchableOpacity 
                         style={theme.goBackContainer} 
                         onPress={() => navigation.goBack()}
                     >
                         <Image source={arrow} />
                         <Text style={text.goBackText}>Voltar</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
+                
                     <View style={theme.movieImageContainer}>
                         <Image 
                             source={{ uri: movie.imgUrl}}  
                             style={theme.movieImage}
                         />
                     </View>
-                    <Text style={text.movieDetailsName}>{movie.title}</Text>
-                    <Text style={text.movieYear}>{movie.year}</Text>
-                    
-                    <ScrollView style={theme.scrollTextContainer}>
-                        <Text style={text.movieDescription}>
-                            {movie.synopsis}
-                        </Text>
-                    </ScrollView>
+                    <View style={theme.movieDetails}>
+                        <Text style={text.movieDetailsName}>{movie.title}</Text>
+                        <Text style={text.movieYear}>{movie.year}</Text>
+                        <Text style={text.movieSubTitle}>{movie.subTitle}</Text>
+                        
+                        <ScrollView style={theme.scrollTextContainer}>
+                            <Text style={text.movieDescription}>
+                                {movie.synopsis}
+                            </Text>
+                        </ScrollView>
+                    </View>                        
                 </View>
             )
         }

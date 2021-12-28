@@ -14,7 +14,11 @@ const Movies: React.FC = () => {
     const [isLoadingMore, setIsLoadingMore] = useState(false)
     const [genre, setGenre] = useState<Genre>()
 
-       
+    useEffect(() => {
+        fillMovies();
+    }, [])
+
+
     const fillMovies = async () => {
         //?page=0&linesPerPage=10&direction=ASC&orderBy=title
 
@@ -40,41 +44,41 @@ const Movies: React.FC = () => {
         setIsLoadingMore(false)
     }
 
+    
     //Infinity scroll
     const loadMore = (distance: number) => {
         if (distance < 1)
             return
 
         setIsLoadingMore(true)
-        setPage(previousPage => previousPage + 1)
+        setPage(previousPage => previousPage++)
         fillMovies()
     }
 
-    useEffect(() => {
-        fillMovies();
-    }, [])
-
 
     return (
-        <View>
-            <FlatList
-                data={movies}
-                keyExtractor={movie => String(movie.id)}
-                renderItem={({ item }) => (
-                    <MovieCard  
-                        {...item}
-                    key={item.id} />
-                )}
-                numColumns={1}
-                showsVerticalScrollIndicator={false}
-                onEndReachedThreshold={0.1} 
-                onEndReached={({ distanceFromEnd }) => loadMore(distanceFromEnd)}
-                ListFooterComponent={isLoadingMore ? <ActivityIndicator style={{ marginBottom: 20 }} color={colors.yellow} /> : <></>}
-            />
+        <View style={ theme.container}>
+            {isLoading ? (
+                <ActivityIndicator size='large' color={colors.white}/>
+            ) : (
+                <FlatList
+                    data={movies}
+                    keyExtractor={movie => String(movie.id)}
+                    renderItem={({ item }) => (
+                        <MovieCard
+                            {...item}
+                            key={item.id} />
+                    )}
+                    numColumns={1}
+                    showsVerticalScrollIndicator={false}
+                    onEndReachedThreshold={0.1}
+                    onEndReached={({ distanceFromEnd }) => loadMore(distanceFromEnd)}
+                    ListFooterComponent={isLoadingMore ? <ActivityIndicator style={{ marginBottom: 20 }} color={colors.yellow} /> : <></>}
+                />
+            )
+            }
         </View>
-    )
-
+        )
 };
-
 
 export default Movies; 

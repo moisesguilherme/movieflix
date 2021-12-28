@@ -52,19 +52,21 @@ const text = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         textTransform: "uppercase",
-        color: colors.darkGray,
+        color: colors.white,
         marginLeft: 16,       
     },
     movieDetailsName: {
         fontSize: 30,
         fontWeight: "bold",
-        marginTop: 10,
-        color: colors.darkGray,
+        marginTop: 0,
+        color: colors.white,
     },
     movieDescription: {
         fontSize: 16,
         fontWeight: "400",
-        color: colors.mediumGray,
+        color: colors.lightGray,
+        textAlign: "justify",
+        lineHeight: 21,
     },
     loginTitle: {
         fontSize: 36,
@@ -85,7 +87,7 @@ const text = StyleSheet.create({
         color: colors.primary,
         fontWeight: "bold",
     },
-    movieSubtitle: {
+    movieSubTitle: {
         fontSize: 16,
         fontWeight: "400",
         color: colors.white,
@@ -191,9 +193,9 @@ const theme = StyleSheet.create({
     detailCards: {
         width: "100%",
         height: "100%",
-        backgroundColor: colors.white,
+        backgroundColor: colors.mediumGray,
         //elevation: 4,
-        borderRadius: 20, 
+        borderRadius: 10, 
         shadowColor: colors.black,
         shadowOffset: {
             width: 0,
@@ -201,12 +203,17 @@ const theme = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        justifyContent: "space-around",
-        padding: 20,
+        justifyContent: "flex-start",
+        padding: 0,
+        paddingLeft: 10,
+        paddingRight: 10,
     },
     detailContainer: {
-        backgroundColor: colors.white,
-        padding: 20,        
+        backgroundColor: colors.background,
+        paddingTop: 20,
+        paddingBottom: 20,                
+        paddingLeft: 5,
+        paddingRight:5,
     },
     goBackContainer: {
         width: 290,
@@ -216,23 +223,23 @@ const theme = StyleSheet.create({
         marginVertical: 10,
     },
     movieImageContainer: {
-        width: '100%',
-        borderWidth: 1,
-        borderColor: colors.lightGray,
         alignItems: "center",
-        borderRadius: 20,
+        marginTop: 20,
     },
     movieImage: {
-        width: 220,
-        height: 220,
+        width: "100%",
+        height: 163,
     },
     scrollTextContainer:{
         marginVertical: 20,
         padding: 20,
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderRadius: 10,
-        borderColor: colors.lightGray,
+        borderColor: "#E1E1E1",
     },    
+    movieDetails:{
+        marginTop: 10,
+    },
 });
 
 const nav = StyleSheet.create({
