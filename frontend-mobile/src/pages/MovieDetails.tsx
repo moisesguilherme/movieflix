@@ -3,7 +3,7 @@ import { View, Text, ActivityIndicator, Image, ScrollView } from 'react-native';
 import { api, makePrivateRequest } from '../core/utils';
 import { theme, colors, text, nav } from '../core/assets/styles';
 import { useNavigation } from '@react-navigation/native';
-
+import { Movie } from "../core/types/Movie";
 
 import arrow from '../core/assets/leftArrow.png'
 
@@ -11,24 +11,13 @@ import arrow from '../core/assets/leftArrow.png'
 const MovieDetails = ({ route: { params: { id } }} : any) => {
     
     const navigation = useNavigation();
-    const [movie, setMovie] = useState({
-        id: null,
-        title: null,
-        subTitle: null,
-        year: null, 
-        imgUrl: null,
-        synopsis: null,
-        genreId: null,
-        reviews: [],
-    });
+    const [movie, setMovie] = useState<Movie>();
 
     const [ loading, setLoading ] = useState(false);
     
     async function  loadMovieData() {
 
         const res = await makePrivateRequest({ url: `/movies/${id}`})
-        //const { content } = res.data;
-        //const res = await api.get(`movies/${id}`);
 
         setMovie(res.data);
         setLoading(false);
@@ -56,18 +45,18 @@ const MovieDetails = ({ route: { params: { id } }} : any) => {
                 
                     <View style={theme.movieImageContainer}>
                         <Image 
-                            source={{ uri: movie.imgUrl}}  
+                            source={{ uri: movie?.imgUrl}}  
                             style={theme.movieImage}
                         />
                     </View>
                     <View style={theme.movieDetails}>
-                        <Text style={text.movieDetailsName}>{movie.title}</Text>
-                        <Text style={text.movieYear}>{movie.year}</Text>
-                        <Text style={text.movieSubTitle}>{movie.subTitle}</Text>
+                        <Text style={text.movieDetailsName}>{movie?.title}</Text>
+                        <Text style={text.movieYear}>{movie?.year}</Text>
+                        <Text style={text.movieSubTitle}>{movie?.subTitle}</Text>
                         
                         <ScrollView style={theme.scrollTextContainer}>
                             <Text style={text.movieDescription}>
-                                {movie.synopsis}
+                                {movie?.synopsis}
                             </Text>
                         </ScrollView>
                     </View>                        

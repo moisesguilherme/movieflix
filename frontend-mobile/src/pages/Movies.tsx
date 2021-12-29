@@ -4,8 +4,6 @@ import { MovieCard, SelectFilter } from "../core/components";
 import { makePrivateRequest } from '../core/utils';
 import { theme, colors, select  } from '../core/assets/styles';
 import { Movie } from "../core/types/Movie";
-import GenericTouchable from 'react-native-gesture-handler/lib/typescript/components/touchables/GenericTouchable';
-
 
 const Movies: React.FC = () => {
 
@@ -13,16 +11,16 @@ const Movies: React.FC = () => {
     const [page, setPage] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
     const [isLoadingMore, setIsLoadingMore] = useState(false)
-    const [genreId, setGenreId] = useState()
-    const [update, setUpdate] = useState(0);
+    const [genreId, setGenreId] = useState<number>()
+    const [update, setUpdate] = useState<number>(0);
     
     useEffect(() => {
         fillMovies();
     }, [update])
 
-    const flatListRef = React.useRef()
+    const flatListRef = React.useRef<FlatList>(null);
 
-    const fillMovies = async () => {
+    const fillMovies = () => {
         const params = {
             linesPerPage: 5,
             direction: 'ASC',
@@ -32,12 +30,12 @@ const Movies: React.FC = () => {
         }
 
         //console.warn("page: ", page, "genredId", genreId)
-        const response = await makePrivateRequest({ url: '/movies', params })
+        const response = makePrivateRequest({ url: '/movies', params })
             .then(response => {
                 const { content } = response.data;
 
                 if (page > 0) {
-                    setMovies(previousData => [...previousData, ...content])
+                    setMovies(previousData => [...previousData!, ...content])
                 } else {
                     setMovies(content)
                 }                
@@ -50,7 +48,7 @@ const Movies: React.FC = () => {
     }
 
     //Infinity scroll
-    const loadMore = (distance: Number) => {
+    const loadMore = (distance: number) => {
         
         if(distance == 0 || distance >= 1){
             setIsLoadingMore(true)
@@ -59,7 +57,7 @@ const Movies: React.FC = () => {
         }
     }
 
-    const handleChangeGenre = (index: Number) => {
+    const handleChangeGenre = (index: number) => {
         setPage(0);
         setGenreId(index);
         setUpdate(update+1);
@@ -68,7 +66,7 @@ const Movies: React.FC = () => {
     
     const toTop = () => {
         // use current
-        flatListRef.current.scrollToOffset({ animated: false, offset: 0 })
+        flatListRef.current!.scrollToOffset({ animated: false, offset: 0 })
     }
 
     return (

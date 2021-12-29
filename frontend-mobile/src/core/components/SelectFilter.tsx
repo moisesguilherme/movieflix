@@ -7,10 +7,10 @@ import { Genre } from '../types/Movie'
 import ArrowDownIcon from '../../core/assets/arrowDown.png';
 
 type Props = {
-    handleChangeGenre: (index: Number) => void;
+    handleChangeGenre: (index: number) => void;
 }
 
-const SelectFilter: React.FC = ({
+const SelectFilter:React.FC<Props> = ({
     handleChangeGenre,
 }: Props) => {
     const [selectedValue, setSelectedValue] = useState('Nenhum');
