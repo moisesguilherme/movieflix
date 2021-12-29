@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput } from 'react-native';
+import { View, Text, Image, TextInput, ScrollView, Alert} from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { text, theme } from "../core/assets/styles";
 
 import eyesOpened from "../core/assets/eyes-opened.png"
 import eyesClosed from "../core/assets/eyes-closed.png"
-import arrow from "../core.assets/arrow.png"
+import arrow from "../core/assets/arrowDown.png"
 import { login } from '../core/utils/auth';
 
 const Login: React.FC = () => {
@@ -25,14 +25,17 @@ const Login: React.FC = () => {
             setUserFechData(data);
             navigation.navigate("Movies");
         }catch(e){
-            console.warn("Login inválido")
-            //console.warn(e);
-        }        
+            //console.warn("Login inválido")
+            Alert.alert('Login', 'O nome do usuário ou a senha está incorreta.', [
+                { text: 'OK', style:'cancel' }
+              ])
+        }       
     }
 
+//<ScrollView style={theme.container}>
 
     return (
-        <View style={theme.container}>
+        <ScrollView contentContainerStyle={ theme.container }>
             <View style={theme.loginCard}>
                 <Text style={text.loginTitle}>Login</Text>
                 <View style={theme.form}>
@@ -51,6 +54,7 @@ const Login: React.FC = () => {
                         }
                     />
                     <View style={theme.passwordGroup}>
+
                         <TextInput
                             placeholder="Senha"
                             autoCapitalize="none"
@@ -65,15 +69,18 @@ const Login: React.FC = () => {
                                 }
                             }
                         />
-                        <TouchableOpacity
-                            style={theme.toggle}
-                            onPress={() => setHidePassord(!hidePassword)}
-                        >
-                            <Image
-                                source={hidePassword ? eyesOpened : eyesClosed}
-                                style={theme.eyes}
-                            />
-                        </TouchableOpacity>
+
+                        <View style={theme.toggle}>
+                            <TouchableOpacity
+                                
+                                onPress={() => setHidePassord(!hidePassword)}
+                            >
+                                <Image
+                                 source={hidePassword ? eyesOpened : eyesClosed}                                
+                                 style={theme.eyesIcon}
+                                />
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
 
@@ -89,7 +96,7 @@ const Login: React.FC = () => {
 
             </View>
 
-        </View>
+        </ScrollView>
     )
 };
 

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { color } from 'react-native-reanimated';
+import { block, color } from 'react-native-reanimated';
 //aaa
 const colors = {
     white: "#FFFFFF",
@@ -109,7 +109,7 @@ const theme = StyleSheet.create({
         marginTop: 20,
         marginBottom: 20,
         backgroundColor: colors.mediumGray,
-        elevation: 4,
+        //elevation: 4,
         borderRadius: 4, 
         shadowColor: colors.black,
         shadowOffset: {
@@ -137,9 +137,14 @@ const theme = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         marginVertical: 25,
+        zIndex: -10,
     },
-    eyes:{
-        left: 0,
+    eyesIcon:{
+        width: 25,
+        height: 25,
+    },
+    toggle:{
+        margin: -35,
     },
     primaryButton: {
         width: 290,
@@ -153,9 +158,6 @@ const theme = StyleSheet.create({
     buttonTextContainer: {
         
 
-    },
-    toggle:{
-        margin: 0,
     },
     movieCard: {
         width: 380,
