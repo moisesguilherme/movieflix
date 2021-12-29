@@ -158,7 +158,7 @@ const theme = StyleSheet.create({
         margin: 0,
     },
     movieCard: {
-        width: "100%",
+        width: 380,
         backgroundColor: colors.mediumGray,
         borderRadius: 4,
         //elevation: 4, 
@@ -258,7 +258,57 @@ const nav = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginRight: 20,
-    },
+    },    
 });
 
-export { colors, theme, text, nav }; 
+const select =  StyleSheet.create({
+    container: {
+        width: 380,
+        backgroundColor: colors.mediumGray,
+        borderRadius: 4,
+        //elevation: 4, 
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        alignItems: "center",
+        margin: 10,
+        padding: 8,
+    },
+    text:{
+        height: 20, 
+        width: 170,
+        fontSize: 10,
+        color: colors.white,
+    },
+    item:{
+        backgroundColor: colors.mediumGray, 
+        color: colors.white, 
+        fontFamily:"Open Sans", 
+        fontSize:17,
+    },
+    pickerWrapper: {
+        borderColor: colors.white,
+        borderWidth: 1,
+        borderRadius: 4,
+     },
+     pickerIcon: {
+        position: "absolute",
+        bottom: 22,
+        right: 17,
+        elevation: 5,
+     },
+     pickerContent: {
+        margin: 3,
+        color: colors.white,
+        width: 250,
+        fontSize: 10,
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+     },
+});
+
+export { colors, theme, text, nav, select }; 

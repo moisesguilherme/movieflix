@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { ScrollView, View, ActivityIndicator, FlatList } from 'react-native'
-import { MovieCard } from "../core/components";
-import { api, TOKEN, makePrivateRequest } from '../core/utils';
-import { theme, colors } from '../core/assets/styles';
-import { Genre, Movie } from "../core/types/Movie";
+import { View, ActivityIndicator, FlatList } from 'react-native'
+import { MovieCard, SelectFilter } from "../core/components";
+import { makePrivateRequest } from '../core/utils';
+import { theme, colors, select  } from '../core/assets/styles';
+import { Movie } from "../core/types/Movie";
+import GenericTouchable from 'react-native-gesture-handler/lib/typescript/components/touchables/GenericTouchable';
 
 
 const Movies: React.FC = () => {
@@ -12,56 +13,77 @@ const Movies: React.FC = () => {
     const [page, setPage] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
     const [isLoadingMore, setIsLoadingMore] = useState(false)
-    const [genre, setGenre] = useState<Genre>()
-
+    const [genreId, setGenreId] = useState()
+    const [update, setUpdate] = useState(0);
+    
     useEffect(() => {
         fillMovies();
-    }, [])
+    }, [update])
 
+    const flatListRef = React.useRef()
 
     const fillMovies = async () => {
-        //?page=0&linesPerPage=10&direction=ASC&orderBy=title
-
         const params = {
-            linesPerPage: 6,
+            linesPerPage: 5,
+            direction: 'ASC',
+            orderBy: 'title',
             page,
-            genreId: genre?.id
+            genreId, 
         }
 
+        //console.warn("page: ", page, "genredId", genreId)
         const response = await makePrivateRequest({ url: '/movies', params })
-        const { content } = response.data;
+            .then(response => {
+                const { content } = response.data;
 
-        if (!response)
-            setIsLoading(true)
+                if (page > 0) {
+                    setMovies(previousData => [...previousData, ...content])
+                } else {
+                    setMovies(content)
+                }                
 
-        if (page > 0) {
-            setMovies(previousData => [...previousData, ...content])
-        } else {
-            setMovies(content)
-        }
-
-        setIsLoading(false)
-        setIsLoadingMore(false)
+            })
+            .finally(() => {
+                setIsLoading(false)
+                setIsLoadingMore(false)
+            });
     }
 
-    
     //Infinity scroll
-    const loadMore = (distance: number) => {
-        if (distance < 1)
-            return
-
-        setIsLoadingMore(true)
-        setPage(previousPage => previousPage++)
-        fillMovies()
+    const loadMore = (distance: Number) => {
+        
+        if(distance == 0 || distance >= 1){
+            setIsLoadingMore(true)
+            setPage(previousPage => previousPage+1)
+            setUpdate(update+1);
+        }
     }
 
+    const handleChangeGenre = (index: Number) => {
+        setPage(0);
+        setGenreId(index);
+        setUpdate(update+1);
+        toTop();
+    }
+    
+    const toTop = () => {
+        // use current
+        flatListRef.current.scrollToOffset({ animated: false, offset: 0 })
+    }
 
     return (
-        <View style={ theme.container}>
+        <View style={theme.container}>
             {isLoading ? (
-                <ActivityIndicator size='large' color={colors.white}/>
+                <ActivityIndicator size='large' color={colors.white} />
             ) : (
+              <>
+                <View style={select.container}>
+                    <SelectFilter
+                        handleChangeGenre={handleChangeGenre}
+                    />
+                </View>
                 <FlatList
+                    ref={flatListRef}
                     data={movies}
                     keyExtractor={movie => String(movie.id)}
                     renderItem={({ item }) => (
@@ -73,12 +95,13 @@ const Movies: React.FC = () => {
                     showsVerticalScrollIndicator={false}
                     onEndReachedThreshold={0.1}
                     onEndReached={({ distanceFromEnd }) => loadMore(distanceFromEnd)}
-                    ListFooterComponent={isLoadingMore ? <ActivityIndicator style={{ marginBottom: 20 }} color={colors.yellow} /> : <></>}
+                    ListFooterComponent={isLoadingMore ? <ActivityIndicator style={{ marginBottom: 20 }} color={colors.white} /> : <></>}
                 />
+                </>  
             )
             }
         </View>
-        )
+    )
 };
 
 export default Movies; 

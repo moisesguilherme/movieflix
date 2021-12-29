@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ActivityIndicator, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, ActivityIndicator, Image, ScrollView } from 'react-native';
 import { api, makePrivateRequest } from '../core/utils';
-import { theme, colors, text } from '../core/assets/styles';
+import { theme, colors, text, nav } from '../core/assets/styles';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -23,7 +23,7 @@ const MovieDetails = ({ route: { params: { id } }} : any) => {
     });
 
     const [ loading, setLoading ] = useState(false);
-
+    
     async function  loadMovieData() {
 
         const res = await makePrivateRequest({ url: `/movies/${id}`})
@@ -77,5 +77,5 @@ const MovieDetails = ({ route: { params: { id } }} : any) => {
         </View>
     );
 }
-
+ 
 export default MovieDetails;
