@@ -6,7 +6,6 @@ import { text, theme } from "../core/assets/styles";
 
 import eyesOpened from "../core/assets/eyes-opened.png"
 import eyesClosed from "../core/assets/eyes-closed.png"
-import arrow from "../core/assets/arrowDown.png"
 import { login } from '../core/utils/auth';
 
 const Login: React.FC = () => {

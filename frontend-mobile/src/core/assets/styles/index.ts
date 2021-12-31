@@ -53,7 +53,7 @@ const text = StyleSheet.create({
         fontWeight: "bold",
         textTransform: "uppercase",
         color: colors.white,
-        marginLeft: 16,       
+        marginLeft: 16,
     },
     movieDetailsName: {
         fontSize: 30,
@@ -72,7 +72,7 @@ const text = StyleSheet.create({
         fontSize: 36,
         color: colors.white,
         textTransform: "uppercase",
-        marginBottom: 50, 
+        marginBottom: 50,
     },
     logoutText: {
         color: colors.black,
@@ -92,6 +92,16 @@ const text = StyleSheet.create({
         fontWeight: "400",
         color: colors.white,
     },
+    //review
+    reviewUser: {
+        fontSize: 16,
+        color: colors.black,
+    },
+
+    reviewText: {
+        fontSize: 16,
+        color: colors.black,
+    }
 })
 
 
@@ -110,7 +120,7 @@ const theme = StyleSheet.create({
         marginBottom: 20,
         backgroundColor: colors.mediumGray,
         //elevation: 4,
-        borderRadius: 4, 
+        borderRadius: 4,
         shadowColor: colors.black,
         shadowOffset: {
             width: 0,
@@ -124,7 +134,7 @@ const theme = StyleSheet.create({
     form: {
         marginVertical: 10,
     },
-    textInput : {
+    textInput: {
         width: 290,
         height: 50,
         borderWidth: 1,
@@ -133,17 +143,17 @@ const theme = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
     },
-    passwordGroup:{
+    passwordGroup: {
         flexDirection: "row",
         alignItems: "center",
         marginVertical: 25,
         zIndex: -10,
     },
-    eyesIcon:{
+    eyesIcon: {
         width: 25,
         height: 25,
     },
-    toggle:{
+    toggle: {
         margin: -35,
     },
     primaryButton: {
@@ -156,7 +166,7 @@ const theme = StyleSheet.create({
         alignItems: "center"
     },
     buttonTextContainer: {
-        
+
 
     },
     movieCard: {
@@ -182,7 +192,7 @@ const theme = StyleSheet.create({
         marginRight: 0,
         marginLeft: 0,
     },
-    movieDescription:{
+    movieDescription: {
         width: "100%",
         padding: 20,
         borderTopColor: colors.lightGray,
@@ -193,11 +203,10 @@ const theme = StyleSheet.create({
         padding: 10,
     },
     detailCards: {
-        width: "100%",
-        height: "100%",
+        width: "95%",
         backgroundColor: colors.mediumGray,
         //elevation: 4,
-        borderRadius: 10, 
+        borderRadius: 10,
         shadowColor: colors.black,
         shadowOffset: {
             width: 0,
@@ -209,13 +218,14 @@ const theme = StyleSheet.create({
         padding: 0,
         paddingLeft: 10,
         paddingRight: 10,
+        paddingBottom: 10,
     },
     detailContainer: {
         backgroundColor: colors.background,
         paddingTop: 20,
-        paddingBottom: 20,                
+        paddingBottom: 20,
         paddingLeft: 5,
-        paddingRight:5,
+        paddingRight: 5,
     },
     goBackContainer: {
         width: 290,
@@ -232,20 +242,37 @@ const theme = StyleSheet.create({
         width: "100%",
         height: 163,
     },
-    scrollTextContainer:{
+    scrollTextContainer: {
         marginVertical: 20,
         padding: 20,
         borderWidth: 1,
         borderRadius: 10,
         borderColor: "#E1E1E1",
-    },    
-    movieDetails:{
+    },
+    movieDetails: {
         marginTop: 10,
     },
+
+    //review
+    reviewContainer:{
+        backgroundColor: colors.mediumGray,
+        width: "96%",
+        marginTop: 10,
+    },
+    reviewImg: {
+        width: 20,
+        height: 20,
+    },
+    reviewCard: {
+    
+    },
+    movieReview: {
+
+    }
 });
 
 const nav = StyleSheet.create({
-    leftText:{
+    leftText: {
         color: colors.black,
         fontWeight: "bold",
         marginLeft: 10,
@@ -260,10 +287,10 @@ const nav = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginRight: 20,
-    },    
+    },
 });
 
-const select =  StyleSheet.create({
+const select = StyleSheet.create({
     container: {
         width: 380,
         backgroundColor: colors.mediumGray,
@@ -280,37 +307,56 @@ const select =  StyleSheet.create({
         margin: 10,
         padding: 8,
     },
-    text:{
-        height: 20, 
+    text: {
+        height: 20,
         width: 170,
         fontSize: 10,
         color: colors.white,
     },
-    item:{
-        backgroundColor: colors.mediumGray, 
-        color: colors.white, 
-        fontFamily:"Open Sans", 
-        fontSize:17,
+    item: {
+        backgroundColor: colors.mediumGray,
+        color: colors.white,
+        fontFamily: "Open Sans",
+        fontSize: 17,
     },
     pickerWrapper: {
         borderColor: colors.white,
         borderWidth: 1,
         borderRadius: 4,
-     },
-     pickerIcon: {
+    },
+    pickerIcon: {
         position: "absolute",
         bottom: 22,
         right: 17,
         elevation: 5,
-     },
-     pickerContent: {
+    },
+    pickerContent: {
         margin: 3,
         color: colors.white,
         width: 250,
         fontSize: 10,
         alignItems: "flex-start",
         justifyContent: "flex-start",
-     },
+    },
 });
 
-export { colors, theme, text, nav, select }; 
+const scroll = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: colors.background,
+        marginTop: 20
+    },
+    scrollView: {
+        backgroundColor: colors.background,
+        marginHorizontal: 0,
+        marginVertical: 0,
+    },
+    text: {
+        fontSize: 42,
+    },
+});
+
+
+export { colors, theme, text, nav, select, scroll }; 

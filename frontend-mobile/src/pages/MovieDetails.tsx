@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ActivityIndicator, Image, ScrollView } from 'react-native';
+import { View, Text, ActivityIndicator, Image, ScrollView, SafeAreaView, RecyclerViewBackedScrollViewBase } from 'react-native';
 import { api, makePrivateRequest } from '../core/utils';
-import { theme, colors, text, nav } from '../core/assets/styles';
+import { theme, colors, text, scroll } from '../core/assets/styles';
 import { useNavigation } from '@react-navigation/native';
 import { Movie } from "../core/types/Movie";
 
 import arrow from '../core/assets/leftArrow.png'
+import MovieReviews from './MovieReviews';
 
 
 const MovieDetails = ({ route: { params: { id } }} : any) => {
@@ -27,11 +28,16 @@ const MovieDetails = ({ route: { params: { id } }} : any) => {
         loadMovieData();
     }, []);
 
-    return (
-        <View style={theme.detailContainer}>
+    const onInsert = () => {
+        //setUpdateReview(updateReview + 1);
+    }
+
+    return ( 
+        <ScrollView style={scroll.scrollView}>
         {
             loading ? 
             <ActivityIndicator size="large" color={colors.white} /> : (
+                <View style={scroll.container}>    
                 
                 <View style={theme.detailCards}>
                     
@@ -59,12 +65,23 @@ const MovieDetails = ({ route: { params: { id } }} : any) => {
                                 {movie?.synopsis}
                             </Text>
                         </ScrollView>
-                    </View>                        
+                    </View>
+                
+                </View>
+
+                        <MovieReviews
+                       reviews={movie?.reviews}
+                       movieId={movie?.id}
+                       onInsert={onInsert}
+                       />
+                
+                
                 </View>
             )
         }
-        </View>
+        </ScrollView>
     );
+
 }
  
 export default MovieDetails;
