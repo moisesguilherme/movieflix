@@ -1,7 +1,11 @@
-import { api, TOKEN } from "./index";
+import { api } from "./request";
 import jwtDecode from 'jwt-decode';
 import queryString from 'query-string';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { encode as btoa } from 'base-64';
+
+export const CLIENT_ID = process.env.CLIENT_ID ?? 'movieflix'
+export const CLIENT_SECRET = process.env.CLIENT_SECRET ?? 'movieflix123'
 
 interface AuthProps {
     username: string;
@@ -26,11 +30,13 @@ type LoginResponse = {
 }
 
 export async function login(userInfo: AuthProps) {
+    const token = `${CLIENT_ID}:${CLIENT_SECRET}`
+
     const data = queryString.stringify({ ...userInfo, grant_type: "password" });
 
     const result = await api.post('oauth/token', data, {
         headers: {
-            Authorization: TOKEN,
+            Authorization:  `Basic ${btoa(token)}`, //Binary to ASCII
             "Content-Type": "application/x-www-form-urlencoded",
         },
     });
@@ -49,10 +55,16 @@ async function setAsyncKeys(key: string, value: string) {
     }
 }
 
+export async function isTokenValid(){
+    const { exp } = await getAccessTokenDecoded(); 
+    return Date.now() <= exp * 1000  //Expira em um dia
+}
+
 export async function isAuthenticated() {
     try {
         const token = await AsyncStorage.getItem("@token");
-        return token ? true : false;
+        const valid = await isTokenValid();
+        return (token && valid) ? true : false;
     } catch (e) {
         console.warn(e);
     }

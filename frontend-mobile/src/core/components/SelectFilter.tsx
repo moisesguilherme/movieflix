@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { nav, select } from '../assets/styles';
-import { makePrivateRequest } from '../../core/utils';
+import { makePrivateRequest } from '../../core/utils/request';
 import { Genre } from '../types/Movie'
 import ArrowDownIcon from '../../core/assets/arrowDown.png';
 
@@ -47,7 +47,7 @@ const SelectFilter:React.FC<Props> = ({
                         }}
                     >
                         {
-                            genres.map(item => (<Picker.Item style={select.item} label={item.name} value={item.name} />))
+                            genres.map(item => (<Picker.Item key={item.id} style={select.item} label={item.name} value={item.name} />))
                         }
 
                     </Picker>

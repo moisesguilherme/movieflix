@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, ActivityIndicator, Image, ScrollView, SafeAreaView, RecyclerViewBackedScrollViewBase } from 'react-native';
-import { api, makePrivateRequest } from '../core/utils';
+import { makePrivateRequest } from '../core/utils/request';
 import { theme, colors, text, scroll } from '../core/assets/styles';
 import { useNavigation } from '@react-navigation/native';
 import { Movie } from "../core/types/Movie";

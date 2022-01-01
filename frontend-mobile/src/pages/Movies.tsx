@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, ActivityIndicator, FlatList } from 'react-native'
 import { MovieCard, SelectFilter } from "../core/components";
-import { makePrivateRequest } from '../core/utils';
+import { makePrivateRequest } from '../core/utils/request';
 import { theme, colors, select  } from '../core/assets/styles';
 import { Movie } from "../core/types/Movie";
 

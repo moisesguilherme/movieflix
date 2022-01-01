@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, Text } from "react-native";
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { doLogout, isAuthenticated } from '../utils/auth';
+import { doLogout, isAuthenticated, isTokenValid } from '../utils/auth';
 
 import { nav, text } from '../assets/styles';
 
@@ -22,9 +22,8 @@ const NavBar: React.FC = () => {
     }
 
     useEffect(() => {
-        logged();
+        logged()        
     }, [])
-
 
     return (
         <>

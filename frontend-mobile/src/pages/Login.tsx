@@ -17,7 +17,6 @@ const Login: React.FC = () => {
         password: ""
     });
 
-
     async function handleLogin() {
         try{
             const data = await login(userInfo);
@@ -30,8 +29,6 @@ const Login: React.FC = () => {
               ])
         }       
     }
-
-//<ScrollView style={theme.container}>
 
     return (
         <ScrollView contentContainerStyle={ theme.container }>
