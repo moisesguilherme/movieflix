@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { block, color } from 'react-native-reanimated';
-//aaa
+
+//Theme colors
 const colors = {
     white: "#FFFFFF",
     lightGray: "#9E9E9E",
@@ -92,15 +93,17 @@ const text = StyleSheet.create({
         fontWeight: "400",
         color: colors.white,
     },
+    
     //review
     reviewUser: {
         fontSize: 16,
-        color: colors.black,
+        color: colors.white,
+        marginLeft: 15,
     },
 
     reviewText: {
         fontSize: 16,
-        color: colors.black,
+        color: colors.lightGray,
     }
 })
 
@@ -268,6 +271,34 @@ const theme = StyleSheet.create({
     },
     movieReview: {
 
+    },
+    /// reorganize css
+    
+    //Container with rounded corners and shadows
+    baseContainer:{
+        width: "95%",
+        backgroundColor: colors.mediumGray,
+        borderRadius: 10,
+        //elevation: 4, 
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        marginVertical: 10, 
+    },
+
+    //reviews
+    reviewCol:{
+        
+    },
+
+    //aligns
+    alignCenter:{
+        alignItems: "center",
+        justifyContent: "space-around",
     }
 });
 
@@ -358,5 +389,39 @@ const scroll = StyleSheet.create({
     },
 });
 
+// Common styles
+const box = StyleSheet.create({
+    VBox: {
+        flexDirection: "column",
+    },
+    HBox: {
+        flexDirection: "row",
+    },
+    padding:{
+        padding: 17,
+    },
+    border:{
+        borderWidth: 2,
+        borderColor: colors.lightGray,
+        borderRadius: 5,
+        padding: 10,
+    },
+});
 
-export { colors, theme, text, nav, select, scroll }; 
+const margin = StyleSheet.create({    
+    top5:{
+        marginTop: 5,
+    },
+    top8:{
+        marginTop: 8,
+    },
+    top10:{
+        marginTop: 10,
+    },
+    bottom10:{
+        marginBottom: 10,
+    }
+});
+
+
+export { colors, theme, text, nav, select, scroll, box, margin }; 

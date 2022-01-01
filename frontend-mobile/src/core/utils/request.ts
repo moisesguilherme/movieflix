@@ -1,7 +1,13 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const BASE_URL = process.env.MOBILE_APP_BACKEND_URL ?? 'http://192.168.100.7:8080';
+//const BASE_URL = process.env.MOBILE_APP_BACKEND_URL ?? 'https://moises-movieflix.herokuapp.com';
+const BASE_URL = 'https://moises-movieflix.herokuapp.com/';
+
+
+export const api = axios.create({
+    baseURL: BASE_URL,
+});
 
 
 export async function makeRequest(params: AxiosRequestConfig){
@@ -22,4 +28,3 @@ export async function makePrivateRequest(params: AxiosRequestConfig){
 
     return makeRequest({ ...params, headers })
 }
-
