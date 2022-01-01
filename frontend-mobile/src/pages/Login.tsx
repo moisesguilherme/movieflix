@@ -36,7 +36,7 @@ const Login: React.FC = () => {
     return (
         <ScrollView contentContainerStyle={ theme.container }>
             <View style={theme.loginCard}>
-                <Text style={text.loginTitle}>Login 0.1</Text>
+                <Text style={text.loginTitle}>Login 0.0.1</Text>
                 <View style={theme.form}>
                     <TextInput
                         placeholder="Email"

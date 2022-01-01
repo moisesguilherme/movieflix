@@ -104,6 +104,11 @@ const text = StyleSheet.create({
     reviewText: {
         fontSize: 16,
         color: colors.lightGray,
+    },
+
+    reviewInput:{
+        fontSize: 16,
+        color: colors.lightGray,
     }
 })
 
@@ -359,7 +364,7 @@ const select = StyleSheet.create({
         position: "absolute",
         bottom: 22,
         right: 17,
-        elevation: 5,
+        //elevation: 5,
     },
     pickerContent: {
         margin: 3,
@@ -397,15 +402,22 @@ const box = StyleSheet.create({
     HBox: {
         flexDirection: "row",
     },
-    padding:{
-        padding: 17,
-    },
     border:{
         borderWidth: 2,
         borderColor: colors.lightGray,
         borderRadius: 5,
         padding: 10,
     },
+    alignCenter:{
+        alignItems: "center",
+    },
+    input:{
+        borderWidth: 1,
+        borderColor: colors.lightGray,
+        backgroundColor: colors.white,
+        borderRadius: 10,
+        padding: 10,
+    }
 });
 
 const margin = StyleSheet.create({    
@@ -420,7 +432,10 @@ const margin = StyleSheet.create({
     },
     bottom10:{
         marginBottom: 10,
-    }
+    },
+    padding:{
+        padding: 17,
+    },
 });
 
 
