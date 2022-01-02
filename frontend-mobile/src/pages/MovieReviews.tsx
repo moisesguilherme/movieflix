@@ -12,10 +12,10 @@ type Props = {
     onInsert: Function
 }
 
-const MovieReviews: React.FC<Props> = ({ reviews }: Props) => {
+const MovieReviews: React.FC<Props> = ({ reviews, movieId, onInsert }: Props) => {
     
     const [hasPermission, setHasPermission] = useState(false);
-
+    
     async function verifyIfUserIsMember() {
         const user = await isAllowedByRole('ROLE_MEMBER')
         setHasPermission(user)
@@ -24,13 +24,14 @@ const MovieReviews: React.FC<Props> = ({ reviews }: Props) => {
     useEffect(() => {
         verifyIfUserIsMember();
       }, [])
-
+     
+    
     return (
         <>
             
            {hasPermission && (            
             <View style={[theme.baseContainer, box.alignCenter]}>
-                <FormReview/>
+                <FormReview movieId={Number(movieId)} onInsert={onInsert} />
             </View>
            )}
 

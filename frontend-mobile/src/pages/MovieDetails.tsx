@@ -13,8 +13,8 @@ const MovieDetails = ({ route: { params: { id } } }: any) => {
 
     const navigation = useNavigation();
     const [movie, setMovie] = useState<Movie>();
-
     const [loading, setLoading] = useState(false);
+    const [updateReview, setUpdateReview] = useState(1);
 
     async function loadMovieData() {
 
@@ -26,10 +26,10 @@ const MovieDetails = ({ route: { params: { id } } }: any) => {
 
     useEffect(() => {
         loadMovieData();
-    }, []);
+    }, [updateReview]);
 
     const onInsert = () => {
-        //setUpdateReview(updateReview + 1);
+        setUpdateReview(updateReview + 1);
     }
 
     return (

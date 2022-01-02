@@ -109,6 +109,7 @@ const text = StyleSheet.create({
     reviewInput:{
         fontSize: 16,
         color: colors.lightGray,
+        minHeight: 100,
     }
 })
 
