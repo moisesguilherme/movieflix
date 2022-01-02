@@ -4,6 +4,7 @@ import { MovieCard, SelectFilter } from "../core/components";
 import { makePrivateRequest } from '../core/utils/request';
 import { theme, colors, select  } from '../core/assets/styles';
 import { Movie } from "../core/types/Movie";
+import { MovieDetails } from '.';
 
 const Movies: React.FC = () => {
 

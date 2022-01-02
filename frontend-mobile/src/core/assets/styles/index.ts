@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { block, color } from 'react-native-reanimated';
+import fonts from './fonts'
 
 //Theme colors
 const colors = {
@@ -328,8 +329,74 @@ const nav = StyleSheet.create({
 });
 
 const select = StyleSheet.create({
+    
+    modalContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    },
+    modalContent: {
+        width: 300,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '50%',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        borderRadius: 10,
+        padding: 15
+    },
+    modalItem: {
+        width: '100%',
+        backgroundColor: colors.mediumGray,
+        padding: 10,
+        borderRadius: 10,
+        marginVertical: 5
+    },
+    modalItemText: {
+        fontFamily: fonts.text,
+        fontSize: 16,
+        lineHeight: 22,
+        letterSpacing: -0.015,
+        color: colors.white
+    },
+    filterContainer: {
+        width: 300,
+        height: 80,
+        backgroundColor: colors.mediumGray,
+        padding: 12,
+        borderRadius: 10,
+        marginBottom: 20
+    },
+    filterSelectContainer: {
+        height: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: colors.white,
+        borderRadius: 10,
+        paddingHorizontal: 15,
+        paddingVertical: 12
+    },
+
+    filterSelectText: {
+        fontFamily: fonts.text,
+        fontSize: 16,
+        lineHeight: 22,
+        letterSpacing: -0.015,
+        color: colors.white
+    },
+    pickerIcon: {
+        position: "absolute",
+        bottom: 22,
+        right: 17,
+        //elevation: 5,
+    },
+
+    
     container: {
         width: 380,
+        height: 100,
         backgroundColor: colors.mediumGray,
         borderRadius: 4,
         //elevation: 4, 
@@ -344,6 +411,7 @@ const select = StyleSheet.create({
         margin: 10,
         padding: 8,
     },
+    /*
     text: {
         height: 20,
         width: 170,
@@ -360,13 +428,10 @@ const select = StyleSheet.create({
         borderColor: colors.white,
         borderWidth: 1,
         borderRadius: 4,
+        height: 100,
+        width: 330,
     },
-    pickerIcon: {
-        position: "absolute",
-        bottom: 22,
-        right: 17,
-        //elevation: 5,
-    },
+    
     pickerContent: {
         margin: 3,
         color: colors.white,
@@ -374,7 +439,7 @@ const select = StyleSheet.create({
         fontSize: 10,
         alignItems: "flex-start",
         justifyContent: "flex-start",
-    },
+    },*/
 });
 
 const scroll = StyleSheet.create({

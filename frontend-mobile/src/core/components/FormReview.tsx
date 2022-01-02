@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, NativeSyntheticEvent, TextInputChangeEventData, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Alert } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { text, theme, box, margin } from '../assets/styles';
 import { makePrivateRequest } from '../utils/request';
