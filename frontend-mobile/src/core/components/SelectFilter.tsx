@@ -15,16 +15,21 @@ const SelectFilter: React.FC<Props> = ({ handleChangeGenre }: Props) => {
     const [showGenres, setShowGenres] = useState(false)
     const [activeGenre, setActiveGenre] = useState('Todos');
 
+    const [first, setFirst] = useState(false);
+
     useEffect(() => {
-        setIsLoadingGenres(true);
+        
+        if(isLoadingGenres) return;
+        //Chama os generos apenas uma vez. 
         makePrivateRequest({ url: '/genres' })
             .then(response => {
                 const data: Genre[] = response.data;
                 data.unshift({ id: 0, name: "Todos" });
                 setGenres(response.data)
+                
             })
             .finally(() => setIsLoadingGenres(true));
-    }, [genres]);
+    }, []);
 
 
     return (

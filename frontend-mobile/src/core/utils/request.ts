@@ -9,17 +9,6 @@ export const api = axios.create({
     baseURL: BASE_URL,
 });
 
-/*
-axios.interceptors.response.use(function(response) {
-    return response
-  }, function (error) {
-    if (error.response.status === 401) {
-        doLogout();
-    }
-  
-    return Promise.reject(error)
-})
-*/
 
 export async function makeRequest(params: AxiosRequestConfig){
     return axios({
@@ -30,7 +19,7 @@ export async function makeRequest(params: AxiosRequestConfig){
 
 
 export async function makePrivateRequest(params: AxiosRequestConfig){
-    
+    //console.warn("Request", params )
     const token = await AsyncStorage.getItem("@token");
     
     const headers = {

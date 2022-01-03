@@ -16,9 +16,9 @@ const NavBar: React.FC = () => {
         result ? setAuthenticated(true) : setAuthenticated(false);
     }
 
-    function logout() {
-        doLogout();
-        navigation.navigate("Login");
+    async function logout() {
+        await doLogout();
+        navigation.navigate("Login");        
     }
 
     useEffect(() => {

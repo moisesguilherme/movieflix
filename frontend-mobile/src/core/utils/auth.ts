@@ -51,7 +51,7 @@ async function setAsyncKeys(key: string, value: string) {
     try {
         await AsyncStorage.setItem(key, value);
     } catch (e) {
-        console.warn(e);
+        console.warn("#1", e);
     }
 }
 
@@ -66,7 +66,7 @@ export async function isAuthenticated() {
         const valid = await isTokenValid();
         return (token && valid) ? true : false;
     } catch (e) {
-        console.warn(e);
+        console.warn("#2", e);
     }
 }
 
@@ -90,6 +90,6 @@ export async function doLogout() {
     try {
         AsyncStorage.removeItem("@token");
     } catch (e) {
-        console.warn(e);
+        console.warn("#3", e);
     }
 }

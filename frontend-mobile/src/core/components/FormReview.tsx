@@ -52,6 +52,7 @@ const FormReview: React.FC<Props> = ({ movieId, onInsert }: Props) => {
                     keyboardType="default"
                     multiline={true}
                     scrollEnabled={true}
+                    value={review}
                     onChangeText={reviewText => setReview(reviewText)}
                 />
 

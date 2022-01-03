@@ -30,7 +30,6 @@ const Movies: React.FC = () => {
             genreId, 
         }
 
-        //console.warn("page: ", page, "genredId", genreId)
         const response = makePrivateRequest({ url: '/movies', params })
             .then(response => {
                 const { content } = response.data;
