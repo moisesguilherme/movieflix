@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Modal, TouchableOpacity, ScrollView, StyleSheet, Text, Image } from 'react-native';
+import { View, Modal, TouchableOpacity, ScrollView, Text, Image } from 'react-native';
 import { select } from '../assets/styles';
 import { makePrivateRequest } from '../../core/utils/request';
 import { Genre } from '../types/Movie'

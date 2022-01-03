@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ActivityIndicator, Image, ScrollView, SafeAreaView, RecyclerViewBackedScrollViewBase } from 'react-native';
+import { View, Text, ActivityIndicator, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { makePrivateRequest } from '../core/utils/request';
 import { theme, colors, text, scroll } from '../core/assets/styles';
 import { useNavigation } from '@react-navigation/native';
 import { Movie } from "../core/types/Movie";
 
-import arrow from '../core/assets/leftArrow.png'
+import arrow from '../core/assets/arrow.png'
 import MovieReviews from './MovieReviews';
 
 
@@ -41,13 +41,18 @@ const MovieDetails = ({ route: { params: { id } } }: any) => {
 
                             <View style={theme.detailCards}>
 
-                                {/* <TouchableOpacity 
-                                        style={theme.goBackContainer} 
-                                        onPress={() => navigation.goBack()}
+                                <TouchableOpacity
+                                    style={theme.goBackContainer}
+                                    onPress={() => navigation.goBack()}
                                 >
-                                    <Image source={arrow} />
+                                    <View style={{
+                                        transform: [{ rotate: "180deg" }]
+                                    }}>
+                                        <Image source={arrow} />
+                                    </View>
+
                                     <Text style={text.goBackText}>Voltar</Text>
-                                    </TouchableOpacity> */}
+                                </TouchableOpacity>
 
                                 <View style={theme.movieImageContainer}>
                                     <Image

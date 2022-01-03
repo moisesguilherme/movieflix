@@ -42,10 +42,10 @@ const FormReview: React.FC<Props> = ({ movieId, onInsert }: Props) => {
 
 
     return (
-        <View style={[box.VBox, margin.padding]}>
-            <View style={margin.bottom10}>
+        <View style={[box.VBox, margin.padding, {width: '100%'}]}>
+            <View style={[margin.bottom10]}>
                 <TextInput
-                    style={[text.reviewInput, box.input]}
+                    style={[text.reviewInput, box.input, margin.bottom10]}
                     placeholder="Deixe sua avaliação aqui"
                     autoCapitalize="none"
                     textAlignVertical='top'
@@ -57,10 +57,10 @@ const FormReview: React.FC<Props> = ({ movieId, onInsert }: Props) => {
 
             </View>
             <TouchableOpacity
-                style={[theme.primaryButton]}
+                style={[theme.primaryButton, {width: '100%'}, margin.bottom10]}
                 onPress={ () => saveReview()}            
             >
-                <View style={theme.buttonTextContainer}>
+                <View>
                     <Text style={text.primaryText}>SALVAR AVALIAÇÃO</Text>
                 </View>
             </TouchableOpacity>

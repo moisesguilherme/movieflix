@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { block, color } from 'react-native-reanimated';
+import { textChangeRangeIsUnchanged } from 'typescript';
 import fonts from './fonts'
 
 //Theme colors
@@ -30,11 +31,13 @@ const text = StyleSheet.create({
         color: colors.darkGray,
     },
     primaryText: {
-        fontSize: 20,
+        fontFamily: fonts.title,
+        fontWeight: "bold",
+        fontSize: 21,
         textTransform: "uppercase",
         color: colors.black,
         textAlign: "center",
-        fontWeight: "bold"
+        letterSpacing: -0.015,
     },
     movieName: {
         fontSize: 16,
@@ -51,19 +54,22 @@ const text = StyleSheet.create({
         fontWeight: "bold",
     },
     goBackText: {
-        fontSize: 18,
+        fontFamily: fonts.title,
+        fontSize: 16,
         fontWeight: "bold",
         textTransform: "uppercase",
         color: colors.white,
-        marginLeft: 16,
+        marginLeft: 10,
     },
     movieDetailsName: {
+        fontFamily: fonts.title,
         fontSize: 30,
         fontWeight: "bold",
         marginTop: 0,
         color: colors.white,
     },
     movieDescription: {
+        fontFamily: fonts.text,
         fontSize: 16,
         fontWeight: "400",
         color: colors.lightGray,
@@ -71,25 +77,31 @@ const text = StyleSheet.create({
         lineHeight: 21,
     },
     loginTitle: {
+        fontFamily: fonts.text,
         fontSize: 36,
         color: colors.white,
         textTransform: "uppercase",
         marginBottom: 50,
     },
     logoutText: {
+        fontFamily: fonts.title,
+        textTransform: "uppercase",
         color: colors.black,
     },
     movieTitle: {
+        fontFamily: fonts.text,
         fontSize: 20,
-        fontWeight: "700",
+        fontWeight: "bold",
         color: colors.white,
     },
     movieYear: {
+        fontFamily: fonts.text,
+        fontWeight: "bold",
         fontSize: 16,
         color: colors.primary,
-        fontWeight: "bold",
     },
     movieSubTitle: {
+        fontFamily: fonts.text,
         fontSize: 16,
         fontWeight: "400",
         color: colors.white,
@@ -97,17 +109,19 @@ const text = StyleSheet.create({
     
     //review
     reviewUser: {
+        fontFamily: fonts.title,
         fontSize: 16,
         color: colors.white,
         marginLeft: 15,
     },
-
     reviewText: {
+        fontFamily: fonts.text,
         fontSize: 16,
         color: colors.lightGray,
     },
 
     reviewInput:{
+        fontFamily: fonts.text,
         fontSize: 16,
         color: colors.lightGray,
         minHeight: 100,
@@ -147,6 +161,7 @@ const theme = StyleSheet.create({
     textInput: {
         width: 290,
         height: 50,
+        fontFamily: fonts.text,
         borderWidth: 1,
         borderColor: colors.lightGray,
         backgroundColor: colors.white,
@@ -174,10 +189,6 @@ const theme = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center"
-    },
-    buttonTextContainer: {
-
-
     },
     movieCard: {
         width: 380,
@@ -242,7 +253,7 @@ const theme = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "flex-start",
-        marginVertical: 10,
+        marginTop: 15,
     },
     movieImageContainer: {
         alignItems: "center",
@@ -272,15 +283,7 @@ const theme = StyleSheet.create({
     reviewImg: {
         width: 20,
         height: 20,
-    },
-    reviewCard: {
-    
-    },
-    movieReview: {
-
-    },
-    /// reorganize css
-    
+    },    
     //Container with rounded corners and shadows
     baseContainer:{
         width: "95%",
@@ -296,12 +299,6 @@ const theme = StyleSheet.create({
         shadowRadius: 3.84,
         marginVertical: 10, 
     },
-
-    //reviews
-    reviewCol:{
-        
-    },
-
     //aligns
     alignCenter:{
         alignItems: "center",
@@ -311,10 +308,12 @@ const theme = StyleSheet.create({
 
 const nav = StyleSheet.create({
     leftText: {
+        fontFamily: fonts.title,
         color: colors.black,
         fontWeight: "bold",
         marginLeft: 10,
-        fontSize: 24,
+        fontSize: 26,
+        letterSpacing: -0.015,
     },
     logoutBtn: {
         width: 100,
@@ -411,35 +410,6 @@ const select = StyleSheet.create({
         margin: 10,
         padding: 8,
     },
-    /*
-    text: {
-        height: 20,
-        width: 170,
-        fontSize: 10,
-        color: colors.white,
-    },
-    item: {
-        backgroundColor: colors.mediumGray,
-        color: colors.white,
-        fontFamily: "Open Sans",
-        fontSize: 17,
-    },
-    pickerWrapper: {
-        borderColor: colors.white,
-        borderWidth: 1,
-        borderRadius: 4,
-        height: 100,
-        width: 330,
-    },
-    
-    pickerContent: {
-        margin: 3,
-        color: colors.white,
-        width: 250,
-        fontSize: 10,
-        alignItems: "flex-start",
-        justifyContent: "flex-start",
-    },*/
 });
 
 const scroll = StyleSheet.create({

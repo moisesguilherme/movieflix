@@ -66,7 +66,6 @@ const Movies: React.FC = () => {
     }
     
     const toTop = () => {
-        // use current
         flatListRef.current!.scrollToOffset({ animated: false, offset: 0 })
     }
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { createStackNavigator } from  '@react-navigation/stack';
-import {  Movies, Login, MovieDetails} from '../pages';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Movies, Login, MovieDetails } from '../pages';
 import { NavBar } from "../core/components";
 import { Text } from "react-native";
 
@@ -13,28 +13,28 @@ const HeaderText: React.FC = () => <Text style={nav.leftText}>MovieFlix</Text>
 const Routes: React.FC = () => {
     return (
         <Stack.Navigator
-        screenOptions={{
-            headerTitle: " ",
-            headerStyle: {                   
-                backgroundColor: colors.primary,
-            },
-            headerLeft: () => <HeaderText />,
-            headerRight: () => <NavBar/>
-        }}
-    >
-        <Stack.Screen 
-            name="Login" 
-            component={Login}
-        />
-        <Stack.Screen 
-            name="Movies" 
-            component={Movies}
-        />
-        <Stack.Screen 
-                name="MovieDetails" 
+            screenOptions={{
+                headerTitle: " ",
+                headerStyle: {
+                    backgroundColor: colors.primary,
+                },
+                headerLeft: () => <HeaderText />,
+                headerRight: () => <NavBar />
+            }}
+        >
+            <Stack.Screen
+                name="Login"
+                component={Login}
+            />
+            <Stack.Screen
+                name="Movies"
+                component={Movies}
+            />
+            <Stack.Screen
+                name="MovieDetails"
                 component={MovieDetails}
-        />
-    </Stack.Navigator>
+            />
+        </Stack.Navigator>
     )
 }
 

@@ -85,7 +85,7 @@ const Login: React.FC = () => {
                     activeOpacity={0.8}
                     onPress={() => handleLogin()}
                 >
-                    <View style={theme.buttonTextContainer}>
+                    <View>
                         <Text style={text.primaryText}>Fazer Login</Text>
                     </View>
                 </TouchableOpacity>
