@@ -1,7 +1,7 @@
 # MovieFlix
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/moisesguilherme/movieflix/blob/main/LICENSE) 
 
-# Sobre o projeto (Em desenvolvimento....)
+# Sobre o projeto
 
 MovieFlix é uma aplicação FullStack web e mobile construída durante o **Bootcamp DevSuperior**, curso da escola de programação [DevSuperior](https://devsuperior.com "Site da DevSuperior").
 
@@ -14,15 +14,18 @@ Ao selecionar um filme da listagem, é mostrada uma página de detalhes, onde é
 
 Um usuário possui nome, email e senha, sendo que o email é seu nome de usuário. Cada filme possui um título, subtítulo, uma imagem, ano de lançamento, sinopse, e um gênero. Os usuários membros podem registrar avaliações para os filmes. Um mesmo usuário membro pode deixar mais de uma avaliação para o mesmo filme.
 
+Você pode logar na aplicação com os usuários:
 
+email: ana@gmail.com | senha: 123456 (MEMBER)
+email: bob@gmail.com | senha: 123456 (VISITOR)
 
 ## Layout mobile 
-![Mobile 1](in progress...)
+![Mobile 1](https://github.com/moisesguilherme/assets/blob/main/movieflix/mobile01.png) ![Mobile 2](https://github.com/moisesguilherme/assets/blob/main/movieflix/mobile02.png) ![Mobile 3](https://github.com/moisesguilherme/assets/blob/main/movieflix/mobile03.png) ![Mobile_4](https://github.com/moisesguilherme/assets/blob/main/movieflix/mobile04.png)
 
 ## Layout web
 ![Web 1](https://github.com/moisesguilherme/assets/blob/main/movieflix/front-web.png) 
-
-![Web 2]
+![Web 2](https://github.com/moisesguilherme/assets/blob/main/movieflix/front-web02.png) 
+![Web 2](https://github.com/moisesguilherme/assets/blob/main/movieflix/front-web03.png) 
 
 ## Modelo conceitual
 ![Modelo Conceitual](https://github.com/moisesguilherme/assets/blob/main/movieflix/modelo-conceitual.png)
@@ -50,7 +53,7 @@ Pré-requisitos: Java 11
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/movieflix
+git clone https://github.com/moisesguilherme/movieflix
 
 # entrar na pasta do projeto back end
 cd backend
@@ -64,10 +67,28 @@ Pré-requisitos: npm / yarn
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/movieflix
+git clone https://github.com/moisesguilherme/movieflix
 
 # entrar na pasta do projeto front end web
-cd front-web
+cd frontend-web
+
+# instalar dependências
+yarn install
+
+# executar o projeto
+yarn start
+```
+
+
+## Front end mobile
+Pré-requisitos: npm / yarn / Expo
+
+```bash
+# clonar repositório
+git clone https://github.com/moisesguilherme/movieflix
+
+# entrar na pasta do projeto front end web
+cd frontend-mobile
 
 # instalar dependências
 yarn install
