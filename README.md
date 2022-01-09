@@ -1,6 +1,9 @@
 # MovieFlix
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/moisesguilherme/movieflix/blob/main/LICENSE) 
 
+Link do projeto no ar: https://main.d3rq8j8a1cbvbk.amplifyapp.com/movies
+
+
 # Sobre o projeto
 
 MovieFlix é uma aplicação FullStack web e mobile construída durante o **Bootcamp DevSuperior**, curso da escola de programação [DevSuperior](https://devsuperior.com "Site da DevSuperior").
@@ -14,8 +17,10 @@ Ao selecionar um filme da listagem, é mostrada uma página de detalhes, onde é
 
 Um usuário possui nome, email e senha, sendo que o email é seu nome de usuário. Cada filme possui um título, subtítulo, uma imagem, ano de lançamento, sinopse, e um gênero. Os usuários membros podem registrar avaliações para os filmes. Um mesmo usuário membro pode deixar mais de uma avaliação para o mesmo filme.
 
-Você pode logar na aplicação com os usuários:
+Link do projeto rodando na Amazon: 
+https://main.d3rq8j8a1cbvbk.amplifyapp.com/movies
 
+Você pode logar na aplicação com os usuários:
 email: ana@gmail.com | senha: 123456 (MEMBER)
 email: bob@gmail.com | senha: 123456 (VISITOR)
 
